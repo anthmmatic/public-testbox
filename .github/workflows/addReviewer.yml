@@ -14,6 +14,6 @@ jobs:
           -X POST \
           -H "Accept: application/vnd.github.v3+json" \
           -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' \
-          https://api.github.com/repos/anthmmatic/retro-candy/pulls/${{ github.event.number }}/requested_reviewers \
+          https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.number }}/requested_reviewers \
           -d '{"reviewers":["Amso64"]}'
           
