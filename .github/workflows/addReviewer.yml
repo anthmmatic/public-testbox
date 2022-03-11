@@ -1,0 +1,19 @@
+name: review_requested testing
+
+on:
+  pull_request:
+    types:
+      - review_requested
+      
+jobs:
+  add-reviewer:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl \
+          -X POST \
+          -H "Accept: application/vnd.github.v3+json" \
+          -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' \
+          https://api.github.com/repos/anthmmatic/retro-candy/pulls/${{ github.event.number }}/requested_reviewers \
+          -d '{"reviewers":["Amso64"]}'
+          
