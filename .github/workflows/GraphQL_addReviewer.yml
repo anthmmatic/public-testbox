@@ -21,7 +21,7 @@ jobs:
         with:
           query: |
             mutation {
-              requestReviews(input: {pullRequestId:"${{ env.prid }}",union:true,userIds:"MDQ6VXNlcjc5Mzg1NDA4") {
+              requestReviews(input: {pullRequestId:"${{ env.prid }}",union:true,userIds:"MDQ6VXNlcjc5Mzg1NDA4"}) {
                 clientMutationId
               }
             }
