@@ -1,0 +1,31 @@
+name: review_requested with GraphQL API
+
+on:
+  pull_request:
+    types:
+      - review_requested
+      
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          PRID=$( \
+          curl \
+          -H "Accept: application/vnd.github.v3+json" \
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          ${{ (toJSON(github.event.pull_request._links.self.href)) }} | jq -r .node_id )
+          echo "prid=$PRID" >> $GITHUB_ENV
+        
+      - uses: octokit/graphql-action@v2.x
+        with:
+          query: |
+            mutation {
+              requestReviews(input: {pullRequestId:"${{ env.prid }}",union:true,userIds:${{ secrets.UID }}) {
+                clientMutationId
+              }
+            }
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          #GITHUB_TOKEN: ${{ secrets.PAT }}
+          
