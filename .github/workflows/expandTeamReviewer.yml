@@ -28,7 +28,9 @@ jobs:
           },
         ]
     steps:
+      - run: echo "${{ matrix.team.members }}"
       - name: Add team members
+        if: false
         id: add_members
         if: github.event.requested_team.slug == matrix.team.name
         uses: octokit/request-action@v2.x
