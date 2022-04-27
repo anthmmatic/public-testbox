@@ -28,16 +28,16 @@ jobs:
           },
         ]
     steps:
-      - run: echo "${{ toJSON(matrix.team.members) }}"
+      #- run: echo "${{ toJSON(matrix.team.members) }}"
       - name: Add team members
-        if: false
+        #if: false
         id: add_members
-        #if: github.event.requested_team.slug == matrix.team.name
+        if: github.event.requested_team.slug == matrix.team.name
         uses: octokit/request-action@v2.x
         with:
           route: POST /repos/{repo}/pulls/{pull_number}/requested_reviewers
           repo: ${{ github.repository }}
           pull_number: ${{ github.event.number }}
-          reviewers: ${{ matrix.team.members }}
+          reviewers: ${{ toJSON(matrix.team.members) }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
