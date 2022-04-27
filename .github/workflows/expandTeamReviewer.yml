@@ -28,7 +28,7 @@ jobs:
           },
         ]
     steps:
-      - run: echo "${{ matrix.team.members }}"
+      - run: echo "${{ toJSON(matrix.team.members) }}"
       - name: Add team members
         if: false
         id: add_members
