@@ -9,4 +9,4 @@ jobs:
     steps:
       - run: |
           echo "Run"
-          exit 0
+          exit 1
