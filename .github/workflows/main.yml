@@ -1,0 +1,19 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  job-success:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          for run in {1..5000}; do
+            echo "Log line: $run"
+          done
+  job-fail:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          for run in {1..5000}; do
+            echo "Log line: $run"
+          done
+          exit 1
