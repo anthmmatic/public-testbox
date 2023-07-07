@@ -3,12 +3,12 @@ on:
 
 jobs:
   job-name:
-    runs-on: macos-latest
+    runs-on: macos-11
     steps:
       - run: brew update
       
   job-two:
-    runs-on: macos-latest
+    runs-on: macos-11
     steps:
       - run: |
           unset HOMEBREW_NO_INSTALL_FROM_API
