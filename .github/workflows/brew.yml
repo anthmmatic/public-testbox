@@ -1,0 +1,15 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  job-name:
+    runs-on: macos-latest
+    steps:
+      - run: brew update
+      
+  job-two:
+    runs-on: macos-latest
+    steps:
+      - run: |
+          unset HOMEBREW_NO_INSTALL_FROM_API
+          brew update
