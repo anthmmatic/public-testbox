@@ -9,7 +9,7 @@ jobs:
       
   job-two:
     runs-on: macos-11
+    env:
+      HOMEBREW_NO_INSTALL_FROM_API: ""
     steps:
-      - run: |
-          unset HOMEBREW_NO_INSTALL_FROM_API
-          brew update
+      - run: brew update
