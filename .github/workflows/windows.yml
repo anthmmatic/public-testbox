@@ -1,0 +1,8 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  job-name:
+    runs-on: windows-latest
+    steps:
+      - run: cat "C:\Program Files\Git\etc\gitconfig"
