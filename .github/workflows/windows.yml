@@ -5,8 +5,6 @@ jobs:
   job-name:
     runs-on: windows-latest
     steps:
-      - run: |
-          git config --global core.fsmonitor true
-          cat "C:\Program Files\Git\etc\gitconfig"
-          git config --global core.fsmonitor false
-          cat "C:\Program Files\Git\etc\gitconfig"
+      - run: git config --list
+      - run: git config --global core.fsmonitor false
+      - run: git config --list
