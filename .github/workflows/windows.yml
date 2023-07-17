@@ -5,8 +5,10 @@ jobs:
   job-name:
     runs-on: windows-latest
     steps:
+      - run: echo $pwd
       - uses: actions/checkout@v3
       - run: echo $pwd
+      - run: echo "${{ github.workspace }}"
       - run: Get-ChildItem $pwd –recurse -directory
       - run: git config --list
       - run: git config --global core.fsmonitor false
