@@ -5,6 +5,8 @@ jobs:
   job-name:
     runs-on: windows-latest
     steps:
+      - uses: actions/checkout@v3
+      - run: echo $pwd
       - run: git config --list
       - run: git config --global core.fsmonitor false
       - run: git config --list
