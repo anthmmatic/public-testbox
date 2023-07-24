@@ -5,6 +5,10 @@ on:
 
 jobs:
   job-name:
+    env:
+      ACTIONS_RUNNER_PRINT_LOG_TO_STDOUT: 1
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ env.ACTIONS_RUNNER_PRINT_LOG_TO_STDOUT }}"
+      - run: |
+          ls -al > sample.txt
+          cat sample.txt
