@@ -7,6 +7,4 @@ jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          echo "Run"
-          exit 1
+      - run: echo "$ACTIONS_RUNNER_PRINT_LOG_TO_STDOUT"
