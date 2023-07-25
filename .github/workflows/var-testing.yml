@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: ${{ github.ref_name }}
+    if: vars.FOO == 'MAINVAL'
     steps:
       - if: ${{ vars.FOO == 'MAINVAL' }}
         run: echo "${{ vars.FOO }}"
