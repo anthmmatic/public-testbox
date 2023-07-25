@@ -8,4 +8,5 @@ jobs:
       name: testing
     if: ${{ vars.FOO == '' }}
     steps:
-      - run: ${{ vars.FOO == '' }}
+      - run: echo "${{ vars.FOO == '' }}"
+      - run: echo "${{ vars.FOO }}"
