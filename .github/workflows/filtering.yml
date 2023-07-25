@@ -1,0 +1,16 @@
+on:
+  pull_request:
+    types: [ opened, synchronize, closed ]
+    paths:
+      # Python namespaces
+      - 'ci/**.py'
+      - 'ocebuild/**.py'
+      # Python configuration
+      - 'poetry.lock'
+      - 'pyproject.toml'
+
+jobs:
+  job-name:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Completed"
