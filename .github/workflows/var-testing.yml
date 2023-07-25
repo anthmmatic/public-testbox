@@ -6,10 +6,7 @@ on:
 jobs:
   job-main:
     runs-on: ubuntu-latest
-    environment:
-      name: ${{ github.ref_name }}
+    if: ${{ vars.FOOR == '' }}
     steps:
-      - if: ${{ vars.FOO == 'MAINVAL' }}
-        run: echo "${{ vars.FOO }}"
-      - if: ${{ vars.FOO == 'FEATVAL' }}
-        run: echo "${{ vars.FOO }}"
+      - run: echo "${{ vars.FOOR == '' }}"
+      - run: echo "${{ vars.FOOR }}"
