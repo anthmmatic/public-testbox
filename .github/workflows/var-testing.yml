@@ -1,0 +1,18 @@
+on:
+  #push:
+  #pull_request:
+  workflow_dispatch:
+
+jobs:
+  job-name:
+    runs-on: ubuntu-latest
+    environment:
+      name: testing
+    env:
+      FOO: ${{ vars.FOO }}
+    if: vars.FOO == ''
+    steps:
+      - name: debug
+        run: |
+          echo ${{ vars.FOO == '' }}
+          echo ${{ vars.FOO == 0 }}
