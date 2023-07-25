@@ -1,16 +1,11 @@
 on:
-  #push:
-  #pull_request:
   workflow_dispatch:
 
 jobs:
   job-main:
     runs-on: ubuntu-latest
     environment:
-      name: ${{ github.ref_name }}
-    if: ${{ vars.FOO == 'MAINVAL' }}
+      name: testing
+    if: ${{ vars.FOO == '' }}
     steps:
-      - if: ${{ vars.FOO == 'MAINVAL' }}
-        run: echo "${{ vars.FOO }}"
-      - if: ${{ vars.FOO == 'FEATVAL' }}
-        run: echo "${{ vars.FOO }}"
+      - run: ${{ vars.FOO == '' }}
