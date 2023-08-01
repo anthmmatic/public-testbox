@@ -20,9 +20,12 @@ jobs:
         with:
           fetch-depth: 0
 
-      - run: git log
+      - run: git log --pretty=oneline
 
       - name: Create tag
         run: |
           git tag ${{ github.run_number }}.${{ github.run_attempt }}
           git push origin --tags
+        env:
+          GIT_TRACE: 1
+          GIT_CURL_VERBOSE: 1
