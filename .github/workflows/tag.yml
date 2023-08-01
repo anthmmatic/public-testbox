@@ -1,0 +1,28 @@
+on:
+  push:
+    branches:
+      - '*'
+
+# permissions for the github runner towards github api
+permissions: write-all
+
+# https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#concurrency
+concurrency:
+  # Group with run_number will allow parallel execution of continuous master, for multiple push events.
+  group: sample-workflow-${{ github.run_number }}
+
+jobs:
+  main-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - run: git log
+
+      - name: Create tag
+        run: |
+          git tag ${{ github.run_number }}.${{ github.run_attempt }}
+          git push origin --tags
