@@ -1,7 +1,8 @@
 on:
-  push:
-    branches:
-      - '*'
+  #push:
+  #  branches:
+  #    - '*'
+  workflow_dispatch:
 
 # permissions for the github runner towards github api
 permissions: write-all
