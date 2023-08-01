@@ -1,9 +1,11 @@
 on:
   release:
-
+  
 jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
       - run: echo "${{ toJSON(github.event) }}"
       - run: echo "${{ github.ref_name }}"
+  reuse:
+    uses: ./.github/workflows/reusewf.yml
