@@ -1,5 +1,11 @@
 on:
-  workflow_dispatch:
+  workflow_call:
+    inputs:
+      version:
+        type: string
+        default: ${{ github.ref_name }}
+        required: false
+        description: version to tag with the Docker image
 
 jobs:
   job-name:
