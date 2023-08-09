@@ -1,11 +1,13 @@
 on:
   release:
+    types: [created, published, released]
   
 jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
       - run: echo "${{ toJSON(github.event) }}"
-      - run: echo "${{ github.ref_name }}"
+      - run: echo "${{ github.ref }}"
   reuse:
+    if: false
     uses: ./.github/workflows/reusewf.yml
