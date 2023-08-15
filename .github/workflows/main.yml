@@ -2,6 +2,10 @@ on:
   workflow_dispatch:
 
 jobs:
+  no-name:
+    runs-on: ubu
+    steps:
+      - run: echo "Can't see me!"
   job-success:
     runs-on: ubuntu-latest
     steps:
