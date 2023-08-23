@@ -5,12 +5,10 @@ jobs:
   job-name:
     runs-on: macos-13
     steps:
-      - shell: bash
-        env:
+      - env:
           SIGNING_CERTIFICATE_P12_DATA: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
           SIGNING_CERTIFICATE_PASSWORD: ${{ secrets.P12_PASSWORD }}
         run: |
-          set -euo pipefail
           security create-keychain -p "" build.keychain
           security list-keychains -s build.keychain
           security default-keychain -s build.keychain
