@@ -3,7 +3,7 @@ on:
 
 jobs:
   job-name:
-    runs-on: macos-latest
+    runs-on: macos-13
     steps:
       - env:
           SIGNING_CERTIFICATE_P12_DATA: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
