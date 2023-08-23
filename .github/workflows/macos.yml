@@ -5,5 +5,18 @@ jobs:
   job-name:
     runs-on: macos-latest
     steps:
-      - run: |
-          
+      - env:
+          SIGNING_CERTIFICATE_P12_DATA: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
+          SIGNING_CERTIFICATE_PASSWORD: ${{ secrets.P12_PASSWORD }}
+        run: |
+          set -euo pipefail
+          security create-keychain -p "" build.keychain
+          security list-keychains -s build.keychain
+          security default-keychain -s build.keychain
+          security unlock-keychain -p "" build.keychain
+          security set-keychain-settings
+          security import <(echo $SIGNING_CERTIFICATE_P12_DATA | base64 --decode) \
+                          -f pkcs12 \
+                          -k build.keychain \
+                          -P $SIGNING_CERTIFICATE_PASSWORD \
+                          -T /usr/bin/codesign
