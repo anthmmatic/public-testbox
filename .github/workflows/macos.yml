@@ -5,7 +5,8 @@ jobs:
   job-name:
     runs-on: macos-13
     steps:
-      - env:
+      - shell: bash
+        env:
           SIGNING_CERTIFICATE_P12_DATA: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
           SIGNING_CERTIFICATE_PASSWORD: ${{ secrets.P12_PASSWORD }}
         run: |
