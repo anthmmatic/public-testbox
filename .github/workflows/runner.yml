@@ -1,0 +1,10 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  job-name:
+    runs-on: ubuntu-latest
+    steps:
+      - run: df -H
+      - run: apt-get clean
+      - run: df -H
