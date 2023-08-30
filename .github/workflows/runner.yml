@@ -7,4 +7,9 @@ jobs:
     steps:
       - run: df -H
       - run: sudo apt-get clean
+      - run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /opt/ghc
+          sudo rm -rf "/usr/local/share/boost"
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
       - run: df -H
