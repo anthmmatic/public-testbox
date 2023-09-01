@@ -1,0 +1,6 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  job-name-reuse:
+    uses: anthmmatic/private-party/.github/workflows/reuse-env.yml@main
