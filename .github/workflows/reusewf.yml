@@ -9,6 +9,8 @@ on:
 
 jobs:
   job-name:
+    concurrency:
+      group: main-reuse-1
     runs-on: ubuntu-latest
     steps:
       - run: echo "Done"
