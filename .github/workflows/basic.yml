@@ -7,5 +7,6 @@ jobs:
     steps:
       - run: touch file.ts file.tsx
       - run: echo "content" > filetwo.tsx
+      - run: ls
       - run: echo "${{ hashFiles('*.tsx?') }}" # empty output
       - run: echo "${{ hashFiles('*.ts', '*.tsx') }}" # correct hash
