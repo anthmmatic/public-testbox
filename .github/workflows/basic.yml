@@ -6,6 +6,9 @@ on:
 
 jobs:
   test:
+    concurrency: 
+      group: main
+      cancel-in-progress: true
     if: |
       always() && !failure() && !cancelled()
     timeout-minutes: 2
