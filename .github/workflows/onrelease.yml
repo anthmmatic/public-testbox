@@ -1,12 +1,22 @@
 on:
+  workflow_dispatch:
   release:
     types: [created]
+
+env:
+  ref_tag: ${{ github.event.release.tag_name }}
+  blank_ref: ""
   
 jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ github.event.release.tag_name }}"
+      - run: echo "${{ github.ref }}"
+      - run: echo "$ref_tag"
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.release.tag_name }}
+          ref: ${{ env.ref_tag }}
+      - run: echo "$blank_ref"
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.blank_ref }}
