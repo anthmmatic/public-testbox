@@ -2,21 +2,18 @@ on:
   workflow_dispatch:
   release:
     types: [created]
-
-env:
-  ref_tag: ${{ github.event.pull_request || format('refs/tags/{0}', github.event.release.tag_name) }}
-  blank_ref: ""
   
 jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
+      - if: ${{ github.event_name == 'release' }}
+        run: echo "REF_TAG=${{ github.event.pull_request || format('refs/tags/{0}', github.event.release.tag_name) }}" >> "$GITHUB_ENV"
+
       - run: echo "${{ github.ref }}"
-      - run: echo "$ref_tag"
+      - run: echo "$REF_TAG"
       - uses: actions/checkout@v4
         with:
-          ref: ${{ env.ref_tag }}
-      - run: echo "$blank_ref"
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ env.blank_ref }}
+          ref: ${{ env.REF_TAG }}
+      - if: ${{ startsWith(env.REF_TAG, 'refs/tags/') }}
+        run: echo "ON RELEASE"
