@@ -15,5 +15,5 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ env.REF_TAG }}
-      - if: ${{ startsWith(env.REF_TAG, 'refs/tags/') }}
+      - if: ${{ startsWith(env.REF_TAG || github.ref, 'refs/tags/') }}
         run: echo "$REF_TAG equals ${{ github.ref }}"
