@@ -8,7 +8,7 @@ jobs:
       - run: exit 1
   follow:
     needs: init
-    if: '!cancelled()'
+    if: cancelled() || success() || failure()
     runs-on: ubuntu-latest
     steps:
       - run: echo "Still running!"
