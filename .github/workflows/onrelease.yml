@@ -1,12 +1,12 @@
 on:
   release:
-    types: [created, published, released]
+    types: [created]
   
 jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ github.event.tag_name }}"
+      - run: echo "${{ github.event.release.tag_name }}"
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.tag_name }}
+          ref: ${{ github.event.release.tag_name }}
