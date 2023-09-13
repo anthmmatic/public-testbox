@@ -1,20 +1,15 @@
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - '*.tsx?'
 
 jobs:
-  test:
-    concurrency: 
-      group: main
-      cancel-in-progress: true
-    if: |
-      always() && !failure() && !cancelled()
-    timeout-minutes: 2
+  init:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - run: echo ${{ hashFiles('*.tsx?') }} # empty output
-      - run: echo ${{ hashFiles('*.tsx') }} # correct hash
-      - run: sleep 120
+      - run: exit 1
+  follow:
+    needs: init
+    if: '!cancelled()'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Still running!"
+    
