@@ -16,4 +16,4 @@ jobs:
         with:
           ref: ${{ env.REF_TAG }}
       - if: ${{ startsWith(env.REF_TAG, 'refs/tags/') }}
-        run: echo "ON RELEASE"
+        run: echo "$REF_TAG equals ${{ github.ref }}"
