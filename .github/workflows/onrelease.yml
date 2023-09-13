@@ -6,8 +6,7 @@ jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ toJSON(github.event) }}"
-      - run: echo "${{ github.ref }}"
-  reuse:
-    if: false
-    uses: ./.github/workflows/reusewf.yml
+      - run: echo "${{ github.event.tag_name }}"
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.tag_name }}
