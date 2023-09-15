@@ -2,33 +2,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  job-success:
-    environment: prod
-    runs-on: ubuntu-latest
-    steps:
-      - name: Verify nf_conntrack_tcp_be_liberal value
-        run: |
-          cat /proc/sys/net/netfilter/nf_conntrack_tcp_be_liberal
-          
-      - name: Apply nf_conntrack_tcp_be_liberal kernel change
-        run: |
-          sudo sh -c "echo 1 > /proc/sys/net/netfilter/nf_conntrack_tcp_be_liberal"
-          
-      - name: Verify nf_conntrack_tcp_be_liberal value
-        run: |
-          cat /proc/sys/net/netfilter/nf_conntrack_tcp_be_liberal
-          
-      - if: false
-        run: |
-          for run in {1..5000}; do
-            echo "Log line: $run"
-          done
-  job-fail:
-    if: false
+  job-one:
     runs-on: ubuntu-latest
     steps:
       - run: |
           for run in {1..5000}; do
             echo "Log line: $run"
           done
-          exit 1
+          echo "Sleeping . . ."
+          sleep 1
+          echo "Done."
