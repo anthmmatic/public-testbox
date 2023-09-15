@@ -8,6 +8,7 @@ jobs:
       - run: |
           for run in {1..5000}; do
             echo "Log line: $run"
+            sleep 1
           done
           echo "Sleeping . . ."
           sleep 1
