@@ -1,0 +1,11 @@
+on:
+  pull_request:
+    paths:
+      - '!empty/**'
+      - 'prt/**'
+
+jobs:
+  job-name:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This Ran."
