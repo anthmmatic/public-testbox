@@ -1,12 +1,10 @@
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '1/5 * * * *'
 
 jobs:
   job-one:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - run: echo "content in this file" > file.txt
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+      - run: echo "Done."
