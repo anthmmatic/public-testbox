@@ -2,7 +2,6 @@ on:
   pull_request:
     paths:
       - '!empty/**'
-      - 'prt/**'
 
 jobs:
   job-name:
