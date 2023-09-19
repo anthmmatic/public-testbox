@@ -5,18 +5,8 @@ jobs:
   job-one:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          for run in {1..5000}; do
-            echo "Log line: $run"
-            sleep 1
-          done
-          echo "Sleeping . . ."
-          sleep 1
-          echo "Done."
-  build:
-    runs-on: ubuntu-latest
-    steps:
       - uses: actions/checkout@v3
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
-        timeout-minutes: 15
+      - run: echo "content in this file" > file.txt
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
