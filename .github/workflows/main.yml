@@ -1,10 +1,13 @@
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '1/5 * * * *'
 
 jobs:
   job-one:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Done."
+      - run: sleep 60
+  job-two:
+    needs: job-one
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "HERE"
