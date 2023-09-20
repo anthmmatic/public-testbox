@@ -9,5 +9,8 @@ jobs:
   job-two:
     needs: job-one
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        id: [1,2,3,4,5]
     steps:
       - run: echo "HERE"
