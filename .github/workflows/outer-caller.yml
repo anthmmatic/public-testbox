@@ -4,4 +4,4 @@ on:
 
 jobs:
   job-name:
-    uses: anthmmatic/public-testbox/.github/workflows/reuser.yml@v3
+    uses: anthmmatic/public-testbox/.github/workflows/reuser.yml@v1
