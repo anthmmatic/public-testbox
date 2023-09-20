@@ -1,0 +1,6 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  job-name:
+    uses: anthmmatic/public-testbox/.github/workflows/reuser@v1
