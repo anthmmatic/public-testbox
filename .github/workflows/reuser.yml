@@ -3,4 +3,4 @@ on:
 
 jobs:
   job-name-reuse:
-    uses: ./.github/workflows/reusewf.yml
+    uses: anthmmatic/public-testbox/.github/workflows/reusewf.yml@v1
