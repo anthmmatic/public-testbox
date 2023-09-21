@@ -6,4 +6,11 @@ jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ secrets.AV_SEC }}"
+      - run: |
+          value=("${{ secrets.AV_SEC }}")
+          echo "$value"
+          if [[ -z "$value" ]]
+          then
+            exit 1;
+          fi
+            
