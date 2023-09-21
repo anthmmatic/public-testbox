@@ -5,3 +5,4 @@ on:
 jobs:
   job-name-reuse:
     uses: ./.github/workflows/reusewf.yml
+    secrets: inherit
