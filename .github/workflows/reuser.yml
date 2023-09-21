@@ -4,4 +4,4 @@ on:
 
 jobs:
   job-name-reuse:
-    uses: anthmmatic/public-testbox/.github/workflows/reusewf.yml@v4
+    uses: ./.github/workflows/reusewf.yml
