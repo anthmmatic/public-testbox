@@ -6,14 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          for run in {1..5000}; do
-            echo "Log line: $run"
+          for run in {1..60}; do
+            echo "Log line: $run";
+            sleep 1;
           done
-  job-fail:
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          for run in {1..5000}; do
-            echo "Log line: $run"
-          done
-          exit 1
