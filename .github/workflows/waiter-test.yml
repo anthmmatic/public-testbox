@@ -4,9 +4,6 @@ on:
 jobs:
   to-run:
     runs-on: ubuntu-latest
-    concurrency:
-      group: group-one
-      cancel-in-progress: true
     steps:
       - run: |
           for i in {0..59}
@@ -18,8 +15,5 @@ jobs:
   to-wait:
     runs-on: ubuntu-latest
     environment: waiter-1
-    concurrency:
-      group: group-one
-      cancel-in-progress: true
     steps:
       - run: echo "Done."
