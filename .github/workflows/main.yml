@@ -7,7 +7,6 @@ jobs:
     steps:
       - run: sleep 60
   job-two:
-    needs: job-one
     runs-on: ubuntu-latest
     strategy:
       matrix:
