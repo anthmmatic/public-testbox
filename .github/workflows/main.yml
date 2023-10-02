@@ -18,15 +18,12 @@ jobs:
           --health-timeout 5s
           --health-retries 5
     steps:
-      - run: apt-get install -y docker && apt-get install -y systemctl
       - run: |
-          systemctl status docker
-          systemctl status containerd
-          docker ps -all
+          curl -fsSL https://get.docker.com -o get-docker.sh
+          sh get-docker.sh
+          
+      - run: docker ps -all
 
       - run: apt-get update && apt install -y postgresql
 
-      - run: |
-          systemctl status docker
-          systemctl status containerd
-          docker ps -all
+      - run: docker ps -all
