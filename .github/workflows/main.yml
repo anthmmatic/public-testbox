@@ -4,7 +4,7 @@ on:
 jobs:
   job-one:
     runs-on: ubuntu-latest
-    container: node:10.18-jessie
+    container: ubuntu:latest
     services:
       postgres:
         image: postgres
