@@ -4,6 +4,9 @@ on:
 jobs:
   job-one:
     runs-on: ubuntu-latest
+    container:
+      image: ubuntu:latest
+      options: --user root
     services:
       postgres:
         image: postgres
@@ -16,13 +19,13 @@ jobs:
           --health-retries 5
     steps:
       - run: |
-          sudo systemctl status docker
-          sudo systemctl status containerd
-          sudo docker ps -all
+          systemctl status docker
+          systemctl status containerd
+          docker ps -all
 
-      - run: sudo apt-get update && sudo apt install -y postgresql
+      - run: apt-get update && apt install -y postgresql
 
       - run: |
-          sudo systemctl status docker
-          sudo systemctl status containerd
-          sudo docker ps -all
+          systemctl status docker
+          systemctl status containerd
+          docker ps -all
