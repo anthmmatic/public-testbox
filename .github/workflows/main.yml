@@ -5,11 +5,14 @@ jobs:
   job-one:
     runs-on: ubuntu-latest
     steps:
-      - run: sleep 60
-  job-two:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        id: [1,2,3,4,5]
-    steps:
-      - run: echo "HERE"
+      - run: |
+          sudo systemctl status docker
+          sudo systemctl status containerd
+          sudo docker ps -all
+
+      - run: apt-get update && apt install -y postgresql
+
+      - run: |
+          sudo systemctl status docker
+          sudo systemctl status containerd
+          sudo docker ps -all
