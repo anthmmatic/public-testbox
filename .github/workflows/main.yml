@@ -4,13 +4,24 @@ on:
 jobs:
   job-one:
     runs-on: ubuntu-latest
+    container: node:10.18-jessie
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     steps:
       - run: |
           sudo systemctl status docker
           sudo systemctl status containerd
           sudo docker ps -all
 
-      - run: apt-get update && apt install -y postgresql
+      - run: sudo apt-get update && sudo apt install -y postgresql
 
       - run: |
           sudo systemctl status docker
