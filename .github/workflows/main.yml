@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: ubuntu:latest
-      options: --user root
+      options: --privileged
     services:
       postgres:
         image: postgres
