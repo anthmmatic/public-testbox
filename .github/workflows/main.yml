@@ -2,28 +2,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  job-one:
+  job-name:
     runs-on: ubuntu-latest
-    container:
-      image: ubuntu:latest
-      options: --privileged
-    services:
-      postgres:
-        image: postgres
-        env:
-          POSTGRES_PASSWORD: postgres
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
     steps:
+      - uses: actions/checkout@v3
       - run: |
-          curl -fsSL https://get.docker.com -o get-docker.sh
-          sh get-docker.sh
-          
-      - run: docker ps -all
-
-      - run: apt-get update && apt install -y postgresql
-
-      - run: docker ps -all
+          echo ${{ github.workspace }}
+          mkdir ${{ github.workspace }}/tempdir
+          cd ${{ github.workspace }}/tempdir
+          echo "Content in File" > inputtext.txt
+      - uses: actions/upload-artifact@v3
+        with:
+          name: temp-art
+          path: ${{ github.workspace }}/tempdir/*.txt
