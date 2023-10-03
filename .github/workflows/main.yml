@@ -17,4 +17,5 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: temp-art
-          path: ${{ github.workspace }}/tempdir/*.txt
+          path: |
+            ${{ github.workspace }}/tempdir/*.txt
