@@ -13,7 +13,7 @@ jobs:
           echo ${{ github.workspace }}
           mkdir ${{ github.workspace }}/tempdir
           cd ${{ github.workspace }}/tempdir
-          echo "Content in File" > inputtext.txt
+          echo "Content in File" > first-input--text.txt
       - uses: actions/upload-artifact@v3
         with:
           name: temp-art
