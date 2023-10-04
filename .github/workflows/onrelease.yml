@@ -1,12 +1,15 @@
 on:
   workflow_dispatch:
   release:
-    types: [created]
+    types: [published]
   
 jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
+      - run: |
+          echo "WD - ${{ github.event.ref }}"
+          echo "RL - ${{ github.event.release.tag_name }}"
       - if: ${{ github.event_name == 'release' }}
         run: echo "REF_TAG=${{ github.event.pull_request || format('refs/tags/{0}', github.event.release.tag_name) }}" >> "$GITHUB_ENV"
 
