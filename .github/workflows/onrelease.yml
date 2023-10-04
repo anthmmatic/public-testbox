@@ -5,6 +5,7 @@ on:
   
 jobs:
   job-name:
+    if: github.event.ref
     runs-on: ubuntu-latest
     steps:
       - run: |
