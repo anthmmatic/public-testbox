@@ -5,7 +5,7 @@ on:
   
 jobs:
   job-name:
-    if: github.event.ref
+    if: startsWith('refs/tags', github.event.ref) || github.event.release.tag_name
     runs-on: ubuntu-latest
     steps:
       - run: |
