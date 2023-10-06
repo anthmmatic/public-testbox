@@ -1,2 +1,2 @@
 # public-testbox
-main NOT
+
