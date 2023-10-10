@@ -15,3 +15,12 @@ jobs:
           jobs=$(jq -c 'reduce .'$event_name'[] as $prop ({}; .[$prop] = "true")' test.json)
           echo "jobs=$jobs" >> "$GITHUB_OUTPUT"
           echo "jobs=$jobs"
+
+  testing:
+    needs: setup
+    if: ${{fromJson(fromJson(needs.setup.outputs.jbjson)['primer-two'])}}
+    runs-on: ubuntu-latest
+    steps:
+      - id: test
+        run: |
+          echo ${{toJson(github.job)}}
