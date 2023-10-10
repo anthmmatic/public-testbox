@@ -1,0 +1,19 @@
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      jbjson: ${{ steps.setter.outputs.json }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: setter
+        run: |
+          cat test.json >> "$GITHUB_OUTPUT"
+  job-name:
+    needs: setup
+    uses: ./.github/workflows/dynam-needs.yml
+    with:
+      jbavls: ${{ needs.setup.outputs.jbjson }}
