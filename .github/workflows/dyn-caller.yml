@@ -13,7 +13,7 @@ jobs:
         run: |
           event_name=${{github.event_name}}
           jobs=$(jq -c 'reduce .'$event_name'[] as $prop ({}; .[$prop] = "true")' test.json)
-          echo "jobs=${jobs//\"/\\\"}" >> "$GITHUB_OUTPUT"
+          echo "${jobs//\"/\\\"}" >> "$GITHUB_OUTPUT"
           echo "jobs=$jobs"
           echo "jobs=${jobs//\"/\\\"}"
           
