@@ -16,9 +16,9 @@ jobs:
           echo "json=$jobs" >> "$GITHUB_OUTPUT"
           echo "jobs=$jobs"
           
-  testing:
+  primer-two:
     needs: setup
-    if: ${{ fromJson(needs.setup.outputs.jbjson)['primer-two'] }}
+    if: ${{ fromJson(needs.setup.outputs.jbjson)[github.job] }}
     runs-on: ubuntu-latest
     steps:
       - id: test
