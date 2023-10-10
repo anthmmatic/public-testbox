@@ -18,7 +18,7 @@ jobs:
 
   testing:
     needs: setup
-    if: ${{fromJson(fromJson(needs.setup.outputs.jbjson)['primer-two'])}}
+    if: ${{needs.setup.outputs.jbjson['primer-two']}}
     runs-on: ubuntu-latest
     steps:
       - id: test
