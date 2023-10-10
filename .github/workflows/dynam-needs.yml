@@ -1,0 +1,34 @@
+on:
+  workflow_call:
+    inputs:
+      jbvals:
+        description: 'job list'
+        required: true
+        type: string
+
+jobs:
+  primer-one:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ github.job }}"
+
+  primer-two:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ github.job }}"
+
+  job-one:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ github.job }}"
+
+  job-two:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ github.job }}"
+
+  dynamic:
+    needs: ${{ fromJSON(inputs.jbvals[github.event_name) }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ inputs.jbvals }}"
