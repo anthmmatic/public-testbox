@@ -16,4 +16,4 @@ jobs:
     needs: setup
     uses: ./.github/workflows/dynam-needs.yml
     with:
-      jbavls: ${{ needs.setup.outputs.jbjson }}
+      jbvals: ${{ needs.setup.outputs.jbjson }}
