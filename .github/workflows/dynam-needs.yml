@@ -28,7 +28,7 @@ jobs:
       - run: echo "${{ github.job }}"
 
   dynamic:
-    needs: ${{ fromJSON(inputs.jbvals[github.event_name) }}
+    needs: ${{ fromJSON(inputs.jbvals[github.event_name]) }}
     runs-on: ubuntu-latest
     steps:
       - run: echo "${{ inputs.jbvals }}"
