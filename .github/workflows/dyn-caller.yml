@@ -18,7 +18,9 @@ jobs:
           
   primer-two:
     needs: setup
-    if: ${{ fromJson(needs.setup.outputs.jbjson)[github.job] }}
+    env:
+      job-name: ${{ github.job }}
+    if: ${{ fromJson(needs.setup.outputs.jbjson)[env.job-name] }}
     runs-on: ubuntu-latest
     steps:
       - id: test
