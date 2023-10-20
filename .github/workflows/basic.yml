@@ -12,7 +12,7 @@ jobs:
           echo $SECRET_1
 
           # Does not work as expected
-          SECRET_2="another-secret-with-another-secret-inside-and-url-encoded-character-%3D${SECRET_1}%value%252Fus-east-1"
+          SECRET_2="another-secret-with-another-secret-inside-and-url-encoded-character-%3D${SECRET_1}%value%"
           echo "::add-mask::$SECRET_2"
           echo $SECRET_2
 
@@ -21,11 +21,11 @@ jobs:
           echo "::add-mask::$SECRET_3"
           echo $SECRET_3
 
-          SECRET_4="%${SECRET_1}%lue%s"
+          SECRET_4="%${SECRET_1}%lue%s3432"
           echo "::add-mask::$SECRET_4"
           echo $SECRET_4
 
-          SECRET_5="%3D${SECRET_1}%a"
+          SECRET_5="%3D${SECRET_1}%a1414%3f"
           echo "::add-mask::$SECRET_5"
           echo $SECRET_5
     
