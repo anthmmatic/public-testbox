@@ -22,4 +22,11 @@ jobs:
           SECRET_7="%3D${SECRET_1}%252F20231011%"
           echo "::add-mask::$SECRET_7"
           echo $SECRET_7
+
+          SECRET_8="%%3D${SECRET_1}%%252F20231011%%252Fus-east-1"
+          echo "::add-mask::$SECRET_8"
+          echo $SECRET_8
+
+          echo ${SECRET_8} > value.txt
+          cat value.txt
     
