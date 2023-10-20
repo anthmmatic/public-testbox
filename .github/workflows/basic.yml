@@ -23,6 +23,6 @@ jobs:
           echo "::add-mask::$SECRET_7"
           echo $SECRET_7
 
-          SECRET_8="%3D${SECRET_1}%3Aissue%20state%3Aclosed%20"
+          SECRET_8="%3D${SECRET_1}%252FAissue%252Fstate%252FAclosed%20"
           echo "::add-mask::$SECRET_8"
           echo $SECRET_8
