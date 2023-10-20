@@ -11,21 +11,15 @@ jobs:
           echo "::add-mask::$SECRET_1"
           echo $SECRET_1
 
-          # Does not work as expected
-          SECRET_2="another-secret-with-another-secret-inside-and-url-encoded-character-%3D${SECRET_1}%value%"
-          echo "::add-mask::$SECRET_2"
-          echo $SECRET_2
-
-          # Work as expected
-          SECRET_3="another-secret-without-%percent-${SECRET_1}%-us-east-1"
-          echo "::add-mask::$SECRET_3"
-          echo $SECRET_3
-
-          SECRET_4="%${SECRET_1}%lue%s3432"
-          echo "::add-mask::$SECRET_4"
-          echo $SECRET_4
-
-          SECRET_5="%3D${SECRET_1}%a1414%3f"
+          SECRET_5="%3D${SECRET_1}%252F20231011%252Fus-east-1"
           echo "::add-mask::$SECRET_5"
           echo $SECRET_5
+
+          SECRET_6="%3D${SECRET_1}%252Fus-east-1"
+          echo "::add-mask::$SECRET_6"
+          echo $SECRET_6
+
+          SECRET_7="%3D${SECRET_1}%252F20231011%"
+          echo "::add-mask::$SECRET_7"
+          echo $SECRET_7
     
