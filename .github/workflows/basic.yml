@@ -5,5 +5,23 @@ jobs:
   base:
     runs-on: ubuntu-latest
     steps:
-      - run: sleep 60
+      - name: Testing add-mask
+        run: |
+          SECRET_1="a-secret"
+          echo "::add-mask::$SECRET_1"
+          echo $SECRET_1
+
+          # Does not work as expected
+          SECRET_2="another-secret-with-another-secret-inside-and-url-encoded-character-%3D${SECRET_1}%252F20231011%252Fus-east-1"
+          echo "::add-mask::$SECRET_2"
+          echo $SECRET_2
+
+          # Work as expected
+          SECRET_3="another-secret-without-percent-${SECRET_1}-us-east-1"
+          echo "::add-mask::$SECRET_3"
+          echo $SECRET_3
+
+          SECRET_4="%va%lue%"
+          echo "::add-mask::$SECRET_4"
+          echo $SECRET_4
     
