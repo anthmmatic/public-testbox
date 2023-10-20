@@ -11,14 +11,14 @@ jobs:
           echo "::add-mask::$SECRET_2"
           echo $SECRET_2
 
-          SECRET_3="avalue%252Favalueafter"
+          SECRET_3="avalue%252Favalueafter%252F"
           echo "::add-mask::$SECRET_3"
           echo $SECRET_3
 
-          SECRET_4="%252F"
+          SECRET_4="%2F%252F%2F"
           echo "::add-mask::$SECRET_4"
           echo $SECRET_4
 
-          SECRET_5="nothing%3Dhere"
+          SECRET_5="%252F%252F"
           echo "::add-mask::$SECRET_5"
           echo $SECRET_5
