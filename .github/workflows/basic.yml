@@ -12,7 +12,7 @@ jobs:
           echo $SECRET_1
 
           SECRET_5="%3D${SECRET_1}%252F20231011%252Fus-east-1"
-          echo "::add-mask::$SECRET_5"
+          echo "::add-mask::${SECRET_5}"
           echo $SECRET_5
 
           SECRET_6="%3D${SECRET_1}%"
