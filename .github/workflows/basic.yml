@@ -19,7 +19,7 @@ jobs:
           echo "::add-mask::$SECRET_6"
           echo $SECRET_6
 
-          SECRET_7="%3Aissue%20state%3Aclosed%20"
+          SECRET_7="%252FAissue%20state%3Aclosed%20"
           echo "::add-mask::$SECRET_7"
           echo $SECRET_7
 
