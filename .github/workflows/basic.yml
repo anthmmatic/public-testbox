@@ -11,18 +11,18 @@ jobs:
           echo "::add-mask::$SECRET_1"
           echo $SECRET_1
 
-          SECRET_5="%3D${SECRET_1}%252F20231011%252Fus-east-1"
-          echo "::add-mask::${SECRET_5}"
+          SECRET_2="another-secret-with-another-secret-inside-and-url-encoded-character-%3D${SECRET_1}%252F20231011%252Fus-east-1"
+          echo "::add-mask::$SECRET_2"
+          echo $SECRET_2
+
+          SECRET_3="%3D${SECRET_1}%2F20231011%2Fus-east-1"
+          echo "::add-mask::$SECRET_3"
+          echo $SECRET_3
+
+          SECRET_4="%252F${SECRET_1}"
+          echo "::add-mask::$SECRET_4"
+          echo $SECRET_4
+
+          SECRET_5="%252Fus-east-1"
+          echo "::add-mask::$SECRET_5"
           echo $SECRET_5
-
-          SECRET_6="%3D${SECRET_1}%"
-          echo "::add-mask::$SECRET_6"
-          echo $SECRET_6
-
-          SECRET_7="%252FAissue%20state%3Aclosed%20"
-          echo "::add-mask::$SECRET_7"
-          echo $SECRET_7
-
-          SECRET_8="%3D${SECRET_1}%252FAissue%252Fstate%252FAclosed%20"
-          echo "::add-mask::$SECRET_8"
-          echo $SECRET_8
