@@ -17,7 +17,7 @@ jobs:
           echo $SECRET_2
 
           # Work as expected
-          SECRET_3="another-secret-without-percent-${SECRET_1}-us-east-1"
+          SECRET_3="another-secret-without-percent-${SECRET_1}%-us-east-1"
           echo "::add-mask::$SECRET_3"
           echo $SECRET_3
 
