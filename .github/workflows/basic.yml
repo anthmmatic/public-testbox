@@ -19,10 +19,10 @@ jobs:
           echo "::add-mask::$SECRET_3"
           echo $SECRET_3
 
-          SECRET_4="%252F${SECRET_1}"
+          SECRET_4="${SECRET_1}%252Faval"
           echo "::add-mask::$SECRET_4"
           echo $SECRET_4
 
-          SECRET_5="%252Fus-east-1"
+          SECRET_5="%252Fus-east-1${SECRET_1}"
           echo "::add-mask::$SECRET_5"
           echo $SECRET_5
