@@ -11,7 +11,7 @@ jobs:
           echo "::add-mask::$SECRET_2"
           echo $SECRET_2
 
-          SECRET_3="//avalue/avalueafter//"
+          SECRET_3="//avalue/avalueafter"
           echo "::add-mask::$SECRET_3"
           echo $SECRET_3
 
@@ -19,6 +19,6 @@ jobs:
           echo "::add-mask::$SECRET_4"
           echo $SECRET_4
 
-          SECRET_5="%252F%252F%252F"
+          SECRET_5="%252Fdwdw%252F"
           echo "::add-mask::$SECRET_5"
           echo $SECRET_5
