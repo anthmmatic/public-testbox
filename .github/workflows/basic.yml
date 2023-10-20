@@ -15,11 +15,11 @@ jobs:
           echo "::add-mask::$SECRET_2"
           echo $SECRET_2
 
-          SECRET_3="%3D${SECRET_1}%2F20231011%2Fus-east-1"
+          SECRET_3="%3D${SECRET_1}%252F20231011%2Fus-east-1"
           echo "::add-mask::$SECRET_3"
           echo $SECRET_3
 
-          SECRET_4="${SECRET_1}%252Faval"
+          SECRET_4="%3D${SECRET_1}%252Faval"
           echo "::add-mask::$SECRET_4"
           echo $SECRET_4
 
