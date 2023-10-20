@@ -17,15 +17,15 @@ jobs:
           echo $SECRET_2
 
           # Work as expected
-          SECRET_3="another-secret-without-percent-${SECRET_1}%-us-east-1"
+          SECRET_3="another-secret-without-%percent-${SECRET_1}%-us-east-1"
           echo "::add-mask::$SECRET_3"
           echo $SECRET_3
 
-          SECRET_4="%${SECRET_1}%lue%"
+          SECRET_4="%${SECRET_1}%lue%s"
           echo "::add-mask::$SECRET_4"
           echo $SECRET_4
 
-          SECRET_5="%3D${SECRET_1}%"
+          SECRET_5="%3D${SECRET_1}%a"
           echo "::add-mask::$SECRET_5"
           echo $SECRET_5
     
