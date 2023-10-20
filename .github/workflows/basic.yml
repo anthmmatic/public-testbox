@@ -7,22 +7,18 @@ jobs:
     steps:
       - name: Testing add-mask
         run: |
-          SECRET_1="a-secret"
-          echo "::add-mask::$SECRET_1"
-          echo $SECRET_1
-
-          SECRET_2="another-secret-with-another-secret-inside-and-url-encoded-character-%3D${SECRET_1}"
+          SECRET_2="%3Daval%2F20231011%2Fus-east-1"
           echo "::add-mask::$SECRET_2"
           echo $SECRET_2
 
-          SECRET_3="%3Daval%252F20231011%2Fus-east-1"
+          SECRET_3="url%3Daval"
           echo "::add-mask::$SECRET_3"
           echo $SECRET_3
 
-          SECRET_4="%3D${SECRET_1}%252Faval"
+          SECRET_4="%3D%252F"
           echo "::add-mask::$SECRET_4"
           echo $SECRET_4
 
-          SECRET_5="%252Fus-east-1${SECRET_1}"
+          SECRET_5="%3Daval%2F20231011%2Fus-east-1"
           echo "::add-mask::$SECRET_5"
           echo $SECRET_5
