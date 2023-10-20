@@ -22,3 +22,5 @@ jobs:
           SECRET_5="%252Fdwdw%252F"
           echo "::add-mask::$SECRET_5"
           echo $SECRET_5
+
+          echo "${{ secrets.ENC_VAL }}"
