@@ -2,20 +2,17 @@ on:
   workflow_dispatch:
 
 jobs:
-  job-name:
+  job-one:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ${{ github.workspace }}
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.9", "3.10"]
     steps:
-      - uses: actions/checkout@v3
-      - run: |
-          echo ${{ github.workspace }}
-          mkdir ${{ github.workspace }}/tempdir
-          cd ${{ github.workspace }}/tempdir
-          echo "Content in File" > first-input--text.txt
-      - uses: actions/upload-artifact@v3
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v3
         with:
-          name: temp-art
-          path: |
-            ${{ github.workspace }}/tempdir/*.txt
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install torch-scatter -f https://data.pyg.org/whl/torch-1.11.0+cpu.html
