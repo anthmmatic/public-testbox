@@ -9,10 +9,11 @@ jobs:
       matrix:
         python-version: ["3.8", "3.9", "3.10"]
     steps:
+      - run: |
+          echo $PATH | tr : '\n'
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v3
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Install dependencies
-        run: |
-          pip install torch-scatter -f https://data.pyg.org/whl/torch-2.1.0+cpu.html
+      - run: |
+          echo $PATH | tr : '\n'
