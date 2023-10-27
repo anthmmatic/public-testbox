@@ -3,17 +3,7 @@ on:
 
 jobs:
   job-one:
-    if: '!cancelled()'
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.8", "3.9", "3.10"]
     steps:
       - run: |
-          echo $PATH | tr : '\n'
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v3
-        with:
-          python-version: ${{ matrix.python-version }}
-      - run: |
-          echo $PATH | tr : '\n'
+          echo ${{ format('{0}{1}', 'refs/tags', github.ref) }}
