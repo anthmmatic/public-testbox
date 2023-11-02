@@ -5,5 +5,7 @@ jobs:
   job-one:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          echo ${{ format('{0}{1}', 'refs/heads/', github.ref_name) }}
+      - uses: actions/checkout@v1
+        env:
+          GIT_TRACE: 1
+          GIT_CURL_VERBOSE: 1
