@@ -1,0 +1,16 @@
+{
+  "name": "public-testbox",
+  "version": "1.0.0",
+  "description": "main NOT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jsii-docgen": "^10.1.1",
+    "lerna": "^7.4.2",
+    "octokit": "^3.1.1"
+  }
+}
