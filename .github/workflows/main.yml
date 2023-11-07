@@ -6,6 +6,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
+        script: [true, false]
         node-version: [18.x, 20.x]
         os: [macos-latest, ubuntu-latest, windows-latest]
     steps:
@@ -17,8 +18,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install -g npm@latest
-      - run: npm install
-      - run: bash ci/build-and-test.sh
+      - if: ${{ matrix.script != 'true' }}
+        run: npm install
+      - if: ${{ matrix.script == 'true' }}
+        run: bash ci/build-and-test.sh
         shell: bash
         env:
           NODE_VERSION: ${{ matrix.node-version }}
