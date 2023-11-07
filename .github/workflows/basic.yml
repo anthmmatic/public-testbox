@@ -3,4 +3,4 @@ on:
 
 jobs:
   fork-reuse:
-    uses: anthmmatic/public-actions-depot/.github/workflows/reusable.yml@1e391a5bbb92f9f0e9c50609bc8b1cdba63562bc
+    uses: anthmmatic/public-actions-depot/.github/workflows/reusable.yml@main
