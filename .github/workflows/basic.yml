@@ -2,25 +2,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  base:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Testing add-mask
-        run: |
-          SECRET_2="%252F%2F"
-          echo "::add-mask::$SECRET_2"
-          echo $SECRET_2
-
-          SECRET_3="//avalue/avalueafter"
-          echo "::add-mask::$SECRET_3"
-          echo $SECRET_3
-
-          SECRET_4="%2F%3D%2F"
-          echo "::add-mask::$SECRET_4"
-          echo $SECRET_4
-
-          SECRET_5="%252Fdwdw%252F"
-          echo "::add-mask::$SECRET_5"
-          echo $SECRET_5
-
-          echo "${{ secrets.ENC_VAL }}"
+  base-reuse:
+    uses: anthms/public-actions-depot/.github/workflows/reusable.yml@main
+  fork-reuse:
+    uses: anthmmatic/public-actions-depot/.github/workflows/reusable.yml@main
