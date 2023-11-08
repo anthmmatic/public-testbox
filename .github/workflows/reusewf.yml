@@ -6,11 +6,5 @@ jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          value=("${{ secrets.AV_SEC }}")
-          echo "$value"
-          if [[ -z "$value" ]]
-          then
-            exit 1;
-          fi
-            
+      - uses: actions/checkout@v4
+      - uses: anthmmatic/public-testbox/.github/actions/my-act@main
