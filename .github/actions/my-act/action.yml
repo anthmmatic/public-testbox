@@ -1,0 +1,8 @@
+name: 'my composite'
+description: 'do a composite action thing'
+
+runs:
+  using: "composite"
+  steps:
+    - run: echo "Hello from the composite."
+      shell: bash
