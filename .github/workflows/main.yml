@@ -3,9 +3,22 @@ on:
 
 jobs:
   job-one:
+    if: false
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-        env:
-          GIT_TRACE: 1
-          GIT_CURL_VERBOSE: 1
+      - run: echo "Done"
+  job-two:
+    needs: job-one
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Done"
+  job-three:
+    needs: job-one
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Done"
+  job-result:
+    needs: [job-two, job-three]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Done"
