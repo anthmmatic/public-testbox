@@ -18,7 +18,7 @@ jobs:
     steps:
       - run: echo "Done"
   job-result:
-    if: ${{ !cancelled() }}
+    if: ${{ !success() }}
     needs: [job-two, job-three]
     runs-on: ubuntu-latest
     steps:
