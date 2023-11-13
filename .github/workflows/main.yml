@@ -15,14 +15,20 @@ jobs:
     needs: job-one
     runs-on: ubuntu-latest
     steps:
-      - run: exit 0
+      - run: exit 1
   job-result:
-    if: ${{ !cancelled() }}
     needs: [job-two, job-three]
     runs-on: ubuntu-latest
     steps:
+      - run: echo "Done"
+  job-result-check:
+    if: ${{ !cancelled() }}
+    continue-on-error: true
+    needs: [job-result]
+    runs-on: ubuntu-latest
+    steps:
       - run: |
-          if ${{ needs.job-two.result != 'success' || needs.job-three.result != 'success' }}; then
+          if ${{ needs.job-result.result != 'success' }}; then
             echo "Tests have failed"
             exit 1
           fi
