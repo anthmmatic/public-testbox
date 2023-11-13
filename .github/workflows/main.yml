@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          if [[ ${{ needs.job-two.result != 'success' || needs.job-three.result != 'success' }} ]]; then
+          if ${{ needs.job-two.result != 'success' || needs.job-three.result != 'success' }}; then
             echo "Tests have failed"
             exit 1
           fi
