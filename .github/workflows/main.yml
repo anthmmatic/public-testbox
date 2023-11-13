@@ -3,7 +3,6 @@ on:
 
 jobs:
   job-one:
-    if: false
     runs-on: ubuntu-latest
     steps:
       - run: echo "Done"
@@ -16,10 +15,12 @@ jobs:
     needs: job-one
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Done"
+      - run: exit 1
   job-result:
-    if: ${{ !success() }}
+    if: ${{ !cancelled() }}
     needs: [job-two, job-three]
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Done"
+      - run: |
+          echo ${{ success() }}
+          echo ${{ failure() }}
