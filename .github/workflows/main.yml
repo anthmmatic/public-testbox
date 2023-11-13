@@ -3,6 +3,7 @@ on:
 
 jobs:
   job-one:
+    if: false
     runs-on: ubuntu-latest
     steps:
       - run: echo "Done"
