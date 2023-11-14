@@ -7,6 +7,6 @@ jobs:
     steps:
       - name: Testing add-mask
         run: |
-          SECRET_2="%3Daval%2520231011%2Fus-east-1"
+          SECRET_2="fefe%25wdwdwdeg"
           echo "::add-mask::$SECRET_2"
           echo $SECRET_2
