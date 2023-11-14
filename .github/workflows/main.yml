@@ -11,4 +11,4 @@ jobs:
           echo $SECRET_1
           echo "::add-mask::$SECRET_1"
           echo $SECRET_1
-
+          echo "%3Daval%252F20231011%2Fus-east-1"
