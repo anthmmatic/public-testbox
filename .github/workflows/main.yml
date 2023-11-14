@@ -7,12 +7,12 @@ jobs:
     steps:
       - name: Testing add-mask
         run: |
-          SECRET_2="%3Dfirst%25secondthird"
-          echo "::add-mask::$SECRET_2"
-          echo $SECRET_2
+          VALUE="%3Dfirst%25secondthird"
+          
+          echo "::add-mask::$VALUE"
+          echo "$VALUE"
 
-          SECRET_1=$( echo "%3Dfirst%25secondthird" | base64 )
-          echo $SECRET_1
-          echo "::add-mask::$SECRET_1"
-          echo $SECRET_1
-          echo "%3Dfirst%25secondthird"
+          VALUE_ENCODED=$( echo "$VALUE" | base64 )
+          echo "::add-mask::$VALUE_ENCODED"
+          echo "$VALUE_ENCODED"
+          echo "$VALUE_ENCODED" | base64 -d
