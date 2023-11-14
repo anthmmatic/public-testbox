@@ -10,3 +10,9 @@ jobs:
           SECRET_2="%3Dfirst%25secondthird"
           echo "::add-mask::$SECRET_2"
           echo $SECRET_2
+
+          SECRET_1=$( echo "%3Dfirst%25secondthird" | base64 )
+          echo $SECRET_1
+          echo "::add-mask::$SECRET_1"
+          echo $SECRET_1
+          echo "%3Dfirst%25secondthird"
