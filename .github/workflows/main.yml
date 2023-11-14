@@ -7,19 +7,8 @@ jobs:
     steps:
       - name: Testing add-mask
         run: |
-          SECRET_2="%252F%2F"
-          echo "::add-mask::$SECRET_2"
-          echo $SECRET_2
-
-          SECRET_3="%3Daval%252F20231011%2Fus-east-1"
-          echo "::add-mask::$SECRET_3"
-          echo $SECRET_3
-
-          SECRET_4=$( echo "$SECRET_2" | base64 )
-          echo "::add-mask::$SECRET_4"
-          echo $SECRET_4
-
-          SECRET_5=$( echo "$SECRET_3" | base64 )
-          echo "::add-mask::$SECRET_5"
-          echo $SECRET_5
+          SECRET_1=$( echo "%3Daval%252F20231011%2Fus-east-1" | base64 )
+          echo $SECRET_1
+          echo "::add-mask::$SECRET_1"
+          echo $SECRET_1
 
