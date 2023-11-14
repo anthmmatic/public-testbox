@@ -9,8 +9,8 @@ jobs:
         run: |
           VALUE="%3Dfirst%25secondthird"
           
-          echo "::add-mask::$VALUE"
-          echo "$VALUE"
+          echo "::add-mask::${VALUE}"
+          echo "${VALUE}"
 
           VALUE_ENCODED=$( echo "$VALUE" | base64 )
           echo "::add-mask::$VALUE_ENCODED"
