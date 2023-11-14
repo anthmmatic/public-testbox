@@ -7,6 +7,6 @@ jobs:
     steps:
       - name: Testing add-mask
         run: |
-          SECRET_2="first%25second%2Fthird"
+          SECRET_2="first%25secondthird"
           echo "::add-mask::$SECRET_2"
           echo $SECRET_2
