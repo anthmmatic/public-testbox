@@ -5,14 +5,13 @@ jobs:
   base:
     runs-on: ubuntu-latest
     steps:
-      - name: Testing add-mask
+      - uses: actions/checkout@v4
+      - name: Change things
+        run: echo "foo" >> README.md
+      - name: Commit and push changes
         run: |
-          VALUE="%3Dfirst%25secondthird"
-          
-          echo "::add-mask::${VALUE}"
-          echo "${VALUE}"
-
-          VALUE_ENCODED=$( echo "$VALUE" | base64 )
-          echo "::add-mask::$VALUE_ENCODED"
-          echo "$VALUE_ENCODED"
-          echo "$VALUE_ENCODED" | base64 -d
+          git config --global user.email "abcabcabcabc@abc"
+          git config --global user.name "nonsense-name"
+          git add .
+          git commit -S -m "Update test file"
+          git push
