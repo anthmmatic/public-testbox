@@ -2,18 +2,17 @@ on:
   workflow_dispatch:
 
 jobs:
-  base:
+  build-and-test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
     steps:
       - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
         with:
-          token: ${{ secrets.PAT }}
-      - name: Change things
-        run: echo "foo" >> README.md
-      - name: Commit and push changes
-        run: |
-          git config --global user.email "abcabcabcabc@abc"
-          git config --global user.name "nonsense-name"
-          git add .
-          git commit -m "Update test file"
-          git push
+          node-version: ${{ matrix.node-version }}
+      - if: matrix.node-version == '20.x'
+        run: echo "NODE_OPTIONS=--no-network-family-autoselection" >> "$GITHUB_ENV"
+      - run: echo "Done."
