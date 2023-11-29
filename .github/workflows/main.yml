@@ -2,18 +2,17 @@ on:
   workflow_dispatch:
 
 jobs:
-  base:
+  prerequisite:
+    name: Prerequisite
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.PAT }}
-      - name: Change things
-        run: echo "foo" >> README.md
-      - name: Commit and push changes
-        run: |
-          git config --global user.email "abcabcabcabc@abc"
-          git config --global user.name "nonsense-name"
-          git add .
-          git commit -m "Update test file"
-          git push
+      - run: |
+          echo failure
+          exit 1
+  required:
+      name: Required
+      runs-on: ubuntu-latest
+      needs: prerequisite
+      steps:
+        - run: echo success
+    
