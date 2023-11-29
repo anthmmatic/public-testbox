@@ -4,6 +4,8 @@ on:
 jobs:
   job-name:
     runs-on: ubuntu-latest
+    container:
+      image: ''
     steps:
       - run: sleep 30
       - run: echo "Done"
