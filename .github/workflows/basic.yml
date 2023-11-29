@@ -1,11 +1,17 @@
 on:
   workflow_dispatch:
+    inputs:
+      username:
+        description: 'A username passed from the caller workflow'
+        required: false
+        type: string
+      
 
 jobs:
   job-name:
     runs-on: ubuntu-latest
     container:
-      image: ''
+      image: ${{ inputs.username }}
     steps:
       - run: sleep 30
       - run: echo "Done"
