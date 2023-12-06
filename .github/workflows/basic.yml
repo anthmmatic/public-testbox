@@ -4,6 +4,15 @@ on:
 jobs:
   job-name:
     runs-on: ubuntu-latest
+    container:
+      image: ilegeul/ubuntu:arm32v7-18.04-xbb-v5.1.0
+    defaults:
+      run:
+        shell: linux32 bash --noprofile --norc -eo pipefail {0}
     steps:
-      - run: sleep 30
-      - run: echo "Done"
+      - run: echo "Running a direct step"
+      - run: echo "write to file" > output.txt
+      - uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: output.txt
