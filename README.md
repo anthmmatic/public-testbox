@@ -1,3 +1,2 @@
 # public-testbox
-main NOT
-foo
+main
