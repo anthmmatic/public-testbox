@@ -3,7 +3,25 @@ on:
   issue_comment:
 
 jobs:
+  prelim:
+    runs-on: ubuntu-latest
+    outputs:
+      HEAD_REF: ${{ steps.get-pr-ref.outputs.REF }}
+    steps:
+      - id: get-pr-ref
+        run: |
+          VAL=$( curl -L \
+          -H "Accept: application/vnd.github+json" \
+          -H "Authorization: Bearer ${{ github.token }}" \
+          -H "X-GitHub-Api-Version: 2022-11-28" \
+          ${{ github.event.issue.pull_request }} |
+          jq .head.ref )
+          echo "REF=$VAL" >> "$GITHUB_OUTPUT"
   job-name:
     runs-on: ubuntu-latest
+    needs: prelim
     steps:
-      - run: echo "${{ toJSON(github.event.issue.pull_request) }}"
+      - run: echo "${{ needs.prelim.outputs.HEAD_REF }}"
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.prelim.outputs.HEAD_REF }}
