@@ -6,4 +6,4 @@ jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ toJSON(github.event.issue.pull_request }}"
+      - run: echo "${{ toJSON(github.event.issue.pull_request) }}"
