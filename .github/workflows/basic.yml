@@ -3,7 +3,7 @@ on:
   issue_comment:
 
 jobs:
-  prelim:
+  setup:
     runs-on: ubuntu-latest
     outputs:
       HEAD_REF: ${{ steps.get-pr-ref.outputs.REF }}
@@ -15,13 +15,16 @@ jobs:
           -H "Authorization: Bearer ${{ github.token }}" \
           -H "X-GitHub-Api-Version: 2022-11-28" \
           ${{ github.event.issue.pull_request.url }} |
-          jq .head.ref )
+          jq -r .head.ref )
           echo "REF=$VAL" >> "$GITHUB_OUTPUT"
-  job-name:
+          
+  deploy:
+    needs: setup
     runs-on: ubuntu-latest
-    needs: prelim
+    env:
+      HEAD_REF: ${{ needs.setup.outputs.HEAD_REF }}
     steps:
-      - run: echo "${{ needs.prelim.outputs.HEAD_REF }}"
+      - run: echo $HEAD_REF
       - uses: actions/checkout@v4
         with:
-          ref: ${{ needs.prelim.outputs.HEAD_REF }}
+          ref: $HEAD_REF
