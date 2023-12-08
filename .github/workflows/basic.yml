@@ -27,4 +27,4 @@ jobs:
       - run: echo $HEAD_REF
       - uses: actions/checkout@v4
         with:
-          ref: $HEAD_REF
+          ref: ${{ env.HEAD_REF }}
