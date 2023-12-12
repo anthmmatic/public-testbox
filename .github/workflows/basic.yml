@@ -7,3 +7,5 @@ jobs:
     with:
       port_payload: ${{ toJSON(github.event.repository) }}
 
+  job-no-param:
+    uses: ./.github/workflows/reusewf.yml
