@@ -12,3 +12,9 @@ jobs:
     if: fromJSON(inputs.port_payload).fork == 'false'
     steps:
       - run: echo "Done"
+
+  job-other:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ inputs.port_payload }}"
+      - run: echo "${{ fromJSON(inputs.port_payload).fork }}"
