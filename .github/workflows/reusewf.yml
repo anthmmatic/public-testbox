@@ -1,10 +1,14 @@
 on:
-  workflow_dispatch:
   workflow_call:
+    inputs:
+      port_payload:
+        required: false
+        description: "Port's payload"
+        type: string
 
 jobs:
   job-name:
     runs-on: ubuntu-latest
+    if: fromJSON(inputs.port_payload).fork == 'false'
     steps:
-      - uses: actions/checkout@v4
-      - uses: anthmmatic/public-testbox/.github/actions/my-act@main
+      - run: echo "Done"
