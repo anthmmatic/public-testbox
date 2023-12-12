@@ -9,7 +9,7 @@ on:
 jobs:
   job-name:
     runs-on: ubuntu-latest
-    if: fromJSON(inputs.port_payload).fork == 'false'
+    if: fromJSON(inputs.port_payload).fork == false
     steps:
       - run: echo "Done"
 
