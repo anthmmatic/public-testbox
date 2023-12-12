@@ -3,7 +3,7 @@ on:
 
 jobs:
   job-name:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "${{ toJSON(github.event.repository) }}"
+    uses: ./.github/workflows/reusewf.yml
+    with:
+      port_payload: ${{ toJSON(github.event.repository) }}
 
