@@ -4,7 +4,7 @@ on:
       port_payload:
         required: false
         description: "Port's payload"
-        default: "{\"val\":\"a\"}"
+        default: "{}"
         type: string
 
 jobs:
