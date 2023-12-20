@@ -1,0 +1,22 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-dev:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        envname: ['dev-1', 'dev-2', 'dev-3']
+    steps:
+      - run: |
+          if [[ ${{ matrix.envname }} == "dev-2" ]]; then
+            exit 1;
+          fi
+          echo "Success"
+
+  check:
+    runs-on: ubuntu-latest
+    if: ${{ !cancelled() }}
+    needs: deploy-dev
+    steps:
+      - run: echo "${{ needs.deploy-dev }}"
