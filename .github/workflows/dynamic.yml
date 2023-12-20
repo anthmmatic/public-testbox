@@ -4,6 +4,7 @@ on:
 jobs:
   deploy-dev:
     runs-on: ubuntu-latest
+    if: ${{ !cancelled() }}
     strategy:
       matrix:
         envname: ['dev-1', 'dev-2', 'dev-3']
@@ -19,4 +20,4 @@ jobs:
     if: ${{ !cancelled() }}
     needs: deploy-dev
     steps:
-      - run: echo "${{ needs.deploy-dev }}"
+      - run: echo "${{ toJSON(needs.deploy-dev) }}"
