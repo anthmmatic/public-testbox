@@ -8,12 +8,18 @@ jobs:
     strategy:
       matrix:
         envname: ['dev-1', 'dev-2', 'dev-3']
+    outputs:
+      output1: ${{ steps.set.outputs.(matrix.envname) }}
+      output2: ${{ steps.set.outputs.(matrix.envname) }}
+      output3: ${{ steps.set.outputs.(matrix.envname) }}
     steps:
       - run: |
           if [[ ${{ matrix.envname }} == "dev-2" ]]; then
             exit 1;
           fi
           echo "Success"
+      - id: set
+        run: echo "${{ matix.envname }}=success" >> "$GITHUB_OUTPUT"
 
   check:
     runs-on: ubuntu-latest
