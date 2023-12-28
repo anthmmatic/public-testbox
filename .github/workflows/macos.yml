@@ -38,6 +38,7 @@ jobs:
       - name: Set Cert
         run: |
           cd ios/signing
+          ls -l
           ./script.sh
           cd ../..
           
