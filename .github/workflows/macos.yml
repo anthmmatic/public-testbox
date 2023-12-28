@@ -4,13 +4,12 @@ on:
 jobs:
   job-name:
     runs-on: macos-13
+    env:
+      BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
+      P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
+      KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
     steps:
       - name: Set Cert
-        env:
-          BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
-          P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
-          KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
-#          MD_APPLE_SDK_ROOT: /Applications/Xcode_15.0.1.app
         run: |
           echo "create variables:"
           CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
@@ -27,4 +26,18 @@ jobs:
           echo "import certificate to keychain:"
           security import $CERTIFICATE_PATH -P "$P12_PASSWORD" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
           security list-keychain -d user -s $KEYCHAIN_PATH
+
+  job-file:
+    runs-on: macos-13
+    env:
+      BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
+      P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
+      KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set Cert
+        run: |
+          cd ios/signing
+          ./script.sh
+          cd ../..
           
