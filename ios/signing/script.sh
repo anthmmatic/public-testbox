@@ -5,7 +5,7 @@ CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
 KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
 
 echo "import certificate from secrets:"
-echo -n "$BUILD_CERTIFICATE_BASE64" | base64 --decode --output $CERTIFICATE_PATH
+echo -n "$BUILD_CERTIFICATE_BASE64" | base64 --decode -o $CERTIFICATE_PATH
 
 echo "create temporary keychain:"
 security create-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
