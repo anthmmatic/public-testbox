@@ -1,9 +1,13 @@
-on: create
+on: 
+  create:
+  workflow_dispatch:
 
 jobs:
   main:
-    if: github.event.ref_type == 'branch' && startsWith(github.event.ref, 'release-')
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ github.event.ref_type }}
-      - run: echo ${{ github.event.ref }}
+      - run: echo "Content" > file.txt
+      - uses: actions/cache@v3
+        with:
+          path: file.txt
+          key: valueone
