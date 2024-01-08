@@ -1,5 +1,8 @@
 on:
   push:
+    branches-ignore:    
+      - 'mona/octocat'
+      - 'releases/**-alpha'
 
 jobs:
   job-name:
