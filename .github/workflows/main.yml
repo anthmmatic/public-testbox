@@ -5,7 +5,13 @@ jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - uses: pnpm/action-setup@v2
+      - uses: actions/checkout@v2
         with:
-          version: 8
-    
+          fetch-depth: 0
+      - run: |
+          pip install --no-deps git+https://github.com/anthmmatic/public-testbox.git
+          echo "pip install public-testbox"
+          pip install --no-deps git+https://${GITHUB_TOKEN}@github.com/anthmmatic/private-party.git
+          echo "pip install private-party"
+        env:
+          GITHUB_TOKEN: ${{ secrets.PATRO }}
