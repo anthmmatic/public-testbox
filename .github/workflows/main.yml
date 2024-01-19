@@ -5,5 +5,7 @@ jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Steps - Content" >> $GITHUB_STEP_SUMMARY
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
     
