@@ -1,0 +1,11 @@
+on:
+  push:
+    branches-ignore:    
+      - 'mona/octocat'
+      - 'releases/**-alpha'
+
+jobs:
+  job-name:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Done"

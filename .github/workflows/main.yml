@@ -2,17 +2,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  prerequisite:
-    name: Prerequisite
+  job-name:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - run: |
-          echo failure
-          exit 1
-  required:
-      name: Required
-      runs-on: ubuntu-latest
-      needs: prerequisite
-      steps:
-        - run: echo success
-    
+          pip install --no-deps git+https://github.com/anthmmatic/public-testbox.git
+          echo "pip install public-testbox"
+          pip install --no-deps git+https://${GITHUB_TOKEN}@github.com/anthmmatic/private-party.git
+          echo "pip install private-party"
+        env:
+          GITHUB_TOKEN: ${{ secrets.PATRO }}
