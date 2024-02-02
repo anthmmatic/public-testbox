@@ -5,6 +5,7 @@ on:
 jobs:
   setup:
     runs-on: ubuntu-latest
+    ubuntu-latest
     outputs:
       HEAD_REF: ${{ steps.get-pr-ref.outputs.REF }}
     steps:
