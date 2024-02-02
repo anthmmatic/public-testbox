@@ -1,0 +1,21 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  job-matrix:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        id: [ 0,1,2,3,4,5 ]
+    steps:
+      - run: |
+          if [[ ${{ matrix.id }} == 2 ]]; then
+            exit 1;
+          fi
+
+  job-checker:
+    if: ${{ !cancelled() }}
+    needs: [ job-matrix ]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ needs.job-matrix.result }}"
