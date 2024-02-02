@@ -3,7 +3,6 @@ on:
 
 jobs:
   job-matrix:
-    if: false
     runs-on: ubuntu-latest
     strategy:
       matrix:
