@@ -3,6 +3,7 @@ on:
 
 jobs:
   job-matrix:
+    if: false
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -14,7 +15,6 @@ jobs:
           fi
 
   job-checker:
-    if: ${{ !cancelled() }}
     needs: [ job-matrix ]
     runs-on: ubuntu-latest
     steps:
