@@ -15,6 +15,7 @@ jobs:
           fi
 
   job-checker:
+    if: ${{ success() || failure() }}
     needs: [ job-matrix ]
     runs-on: ubuntu-latest
     steps:
