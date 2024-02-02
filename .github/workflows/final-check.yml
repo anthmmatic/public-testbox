@@ -10,7 +10,7 @@ jobs:
     steps:
       - run: |
           if [[ ${{ matrix.id }} == 2 ]]; then
-            sleep 30;
+            exit 0;
           fi
 
   job-checker:
