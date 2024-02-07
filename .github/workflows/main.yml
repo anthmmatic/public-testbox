@@ -5,7 +5,7 @@ jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "TFO=$(terraform output -raw lb_address | tr -d '\n')" >> $GITHUB_ENV
-        env:
-          TF_LOG: TRACE
-      - run: echo $TFO
+      - run: |
+          set -x
+          echo "GH_VERSION=$(gh version | tr -d '\n')" >> $GITHUB_ENV
+      - run: echo $GH_VERSION
