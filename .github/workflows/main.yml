@@ -5,9 +5,9 @@ jobs:
   job-name:
     runs-on: macos-latest
     steps:
-      - name: screen resolution
-        run: |
+      - run: |
           system_profiler SPDisplaysDataType | grep Resolution
+      - run: |
           "/Library/Application Support/VMware Tools/vmware-resolutionSet" 2560 1440
-          sleep 2
+      - run: |
           system_profiler SPDisplaysDataType | grep Resolution
