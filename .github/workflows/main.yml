@@ -5,6 +5,7 @@ jobs:
   job-name:
     runs-on: macos-latest
     steps:
+      - uses: actions/checkout@v4
       - run: |
           system_profiler SPDisplaysDataType | grep Resolution
       - run: |
