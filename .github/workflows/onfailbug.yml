@@ -13,6 +13,7 @@ jobs:
       - run: exit ${{ inputs.exitcode }}
 
   onsuccess:
+    needs: exiter
     runs-on: ubuntu-latest
     env:
       MYSECRET: ${{ secrets.VALUE }}
@@ -20,6 +21,7 @@ jobs:
       - run: echo $MYSECRET
 
   onfailure:
+    needs: exiter
     if: failure()
     runs-on: ubuntu-latest
     env:
