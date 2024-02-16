@@ -1,19 +1,20 @@
 on:
   workflow_dispatch:
+    inputs:
+      exitcode:
+        description: 'Exit Code'
+        required: true
+        type: string
 
 jobs:
-  onsuccess:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - run: exit 0
-      - run: echo $MYSECRET
+      - run: exit ${{ inputs.exitcode }}
+      - if: success()
+        run: echo $MYSECRET
         env:
           MYSECRET: ${{ secrets.VALUE }}
-
-  onfailure:
-    runs-on: ubuntu-latest
-    steps:
-      - run: exit 1
       - if: failure()
         run: echo $MYSECRET
         env:
