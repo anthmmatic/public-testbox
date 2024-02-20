@@ -1,0 +1,12 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  generate-logs:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          for i in {1..4000}
+          do
+             echo "Log line: $i"
+          done
