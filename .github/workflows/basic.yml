@@ -1,32 +1,16 @@
 on:
   workflow_dispatch:
-  push:
-  issue_comment:
 
 jobs:
-  setup:
+  job-name:
+    name: "PHP ${{ matrix.php }} {{ matrix.with_coverage == true && 'with coverage' }}"
     runs-on: ubuntu-latest
-    ubuntu-latest
-    outputs:
-      HEAD_REF: ${{ steps.get-pr-ref.outputs.REF }}
+    strategy:
+      matrix:
+        php: [ '7.2', '7.3' ]
+        with_coverage: [ false ]
+        include:
+          - php: '7.4'
+            with_coverage: true
     steps:
-      - id: get-pr-ref
-        run: |
-          VAL=$( curl -L \
-          -H "Accept: application/vnd.github+json" \
-          -H "Authorization: Bearer ${{ github.token }}" \
-          -H "X-GitHub-Api-Version: 2022-11-28" \
-          ${{ github.event.issue.pull_request.url }} |
-          jq -r .head.ref )
-          echo "REF=$VAL" >> "$GITHUB_OUTPUT"
-          
-  deploy:
-    needs: setup
-    runs-on: ubuntu-latest
-    env:
-      HEAD_REF: ${{ needs.setup.outputs.HEAD_REF }}
-    steps:
-      - run: echo $HEAD_REF
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ env.HEAD_REF }}
+      - run: echo "Done"
