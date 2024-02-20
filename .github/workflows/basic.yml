@@ -3,7 +3,7 @@ on:
 
 jobs:
   job-name:
-    name: "PHP ${{ matrix.php }} {{ matrix.with_coverage == true && 'with coverage' }}"
+    name: "PHP ${{ matrix.php }} ${{ matrix.with_coverage == true && 'with coverage' }}"
     runs-on: ubuntu-latest
     strategy:
       matrix:
