@@ -4,7 +4,7 @@ on:
 
 jobs:
   job-name:
+    environment: dev
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: anthmmatic/public-testbox/.github/actions/my-act@main
+      - run: echo ${{ secrets.DEV_ENV }}
