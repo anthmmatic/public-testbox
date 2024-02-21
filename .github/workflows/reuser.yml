@@ -4,3 +4,4 @@ on:
 jobs:
   job-main:
     uses: ./.github/workflows/reusewf.yml
+    secrets: inherit
