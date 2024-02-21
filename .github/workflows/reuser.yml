@@ -3,4 +3,4 @@ on:
 
 jobs:
   job-main:
-    uses: anthmmatic/public-testbox/.github/workflows/reuse/second-reusable.yml@main
+    uses: ./.github/workflows/reusewf.yml
