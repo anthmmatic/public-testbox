@@ -1,10 +1,17 @@
 on:
   workflow_dispatch:
   workflow_call:
+    inputs:
+      id:
+        required: true
+        type: string
 
 jobs:
   job-name:
-    environment: dev
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ secrets.DEV_ENV }}
+      - run: |
+          if [[ ${{ inputs.id }} -eq 1 ]]; then
+            exit 1
+          fi
+          sleep 60
