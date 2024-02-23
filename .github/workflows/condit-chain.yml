@@ -12,7 +12,7 @@ jobs:
       id: ${{ matrix.id }}
   dep:
     needs: init
-    if: (!cancelled() && !failure())
+    if: (!cancelled() && !failure() && needs.init.result != "cancelled")
     runs-on: ubuntu-latest
     steps:
       - run: echo ${{ needs.init.result }}
