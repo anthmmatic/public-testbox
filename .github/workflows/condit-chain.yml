@@ -15,7 +15,7 @@ jobs:
           sleep 60
   dep:
     needs: init
-    if: (!cancelled() && !failure())
+    if: (!cancelled() && !failure() && inputs.deployment_type != 'none')
     runs-on: ubuntu-latest
     steps:
       - run: echo "done"
