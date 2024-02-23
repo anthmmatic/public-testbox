@@ -3,5 +3,5 @@ on:
 
 jobs:
   job-main:
-    uses: ./.github/workflows/reusewf.yml
+    uses: ./.github/workflows/condit-chain.yml
     secrets: inherit
