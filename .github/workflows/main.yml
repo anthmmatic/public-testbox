@@ -1,11 +1,16 @@
 on:
   workflow_dispatch:
+    inputs:
+      trigger_production_build:
+        description: Trigger production build after successful merge and tag
+        type: boolean
+        required: true
+        default: true
 
 jobs:
   job-name:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
-      - run: |
-          "/Library/Application Support/VMware Tools/vmware-resolutionSet" 2560 1440
-      - run: |
-          system_profiler SPDisplaysDataType | grep Resolution
+      - run: echo "Step 1"
+      - if: success() && github.event.inputs.trigger_production_build == true
+        run: echo "Conditional Step 2"
