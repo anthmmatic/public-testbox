@@ -12,5 +12,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Step 1"
-      - if: success() && github.event.inputs.trigger_production_build == true
+      - if: success() && github.event.inputs.trigger_production_build == 'true'
         run: echo "Conditional Step 2"
