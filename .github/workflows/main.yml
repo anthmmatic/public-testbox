@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Number of cores:$(nproc)"
-      - run: lsproc
+      - run: lscpu
