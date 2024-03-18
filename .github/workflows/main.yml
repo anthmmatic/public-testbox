@@ -1,16 +1,9 @@
 on:
   workflow_dispatch:
-    inputs:
-      trigger_production_build:
-        description: Trigger production build after successful merge and tag
-        type: boolean
-        required: true
-        default: true
 
 jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Step 1"
-      - if: success() && inputs.trigger_production_build == true
-        run: echo "Conditional Step 2"
+      - run: echo "Number of cores:$(nproc)"
+      - run: lsproc
