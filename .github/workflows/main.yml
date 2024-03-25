@@ -5,5 +5,4 @@ jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - run: cat test.txt
+      - uses: docker://gcr.io/cloud-builders/gradle
