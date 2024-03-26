@@ -1,0 +1,14 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  generate-logs:
+    runs-on: ubuntu-8-core
+    steps:
+      - run: |
+          for i in {1..4000}
+          do
+             echo -e "\033[31mLogline:$i\033[0m"
+             echo -e "\033[32mLogline:$i\033[0m"
+             echo -e "\033[33mLogline:$i\033[0m"
+          done
