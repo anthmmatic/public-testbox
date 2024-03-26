@@ -3,5 +3,10 @@ on:
 
 jobs:
   job-main:
-    uses: ./.github/workflows/condit-chain.yml
-    secrets: inherit
+    if: false
+    uses: ThiefMaster/indico-gh-actions/.github/workflows/build-plugins.yml@master
+    with:
+      scripts-repo: ThiefMaster/indico-gh-actions
+      directory: cern
+      extra-plugins-repo: indico/indico-plugins
+      extra-plugins-dir: public
