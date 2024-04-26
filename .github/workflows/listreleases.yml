@@ -16,7 +16,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release list --json name | cat
+          gh release list --repo niktekusho/releases-repro --json name | cat
 
   list_releases_contents_write:
     permissions:
@@ -30,4 +30,4 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release list --json name | cat
+          gh release list --repo niktekusho/releases-repro --json name | cat
