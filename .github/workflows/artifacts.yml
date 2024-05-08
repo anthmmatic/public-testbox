@@ -8,5 +8,5 @@ jobs:
       - run: echo "TEST FILE CONTENT" > test.txt
       - uses: actions/upload-artifact@v4
         with:
-          name: my-art
+          name: my-art-${{ github.run_attempt }}
           path: test.txt
