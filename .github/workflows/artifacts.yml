@@ -10,4 +10,5 @@ jobs:
         with:
           name: my-art-${{ github.run_attempt }}
           path: test.txt
+      - run: echo "my content here" >> $GITHUB_STEP_SUMMARY
       - run: exit 1
