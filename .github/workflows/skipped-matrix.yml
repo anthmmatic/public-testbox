@@ -3,7 +3,7 @@ on:
 
 jobs:
   job-name:
-    name: Matrix Job ${{ matrix.numb || ""}}
+    name: Matrix Job ${{ matrix.numb || ''}}
     runs-on: ubuntu-latest
     strategy:
       matrix:
