@@ -10,3 +10,4 @@ jobs:
         with:
           name: my-art-${{ github.run_attempt }}
           path: test.txt
+      - run: exit 1
