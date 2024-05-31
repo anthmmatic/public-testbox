@@ -3,11 +3,11 @@ on:
 
 jobs:
   job-name:
-    name: Matrix Job ${{ matrix.numb }} || Matrix Job - Skipped
-    if: false
+    name: Matrix Job ${{ matrix.numb || ""}}
     runs-on: ubuntu-latest
     strategy:
       matrix:
         numb: [0,1,2,3]
+    if: false
     steps:
       - run: echo "Done"
