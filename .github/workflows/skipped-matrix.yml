@@ -1,0 +1,13 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  job-name:
+    name: Matrix Job ${{ matrix.numb }}
+    if: false
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        numb: [0,1,2,3]
+    steps:
+      - run: echo "Done"
