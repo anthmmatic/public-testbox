@@ -3,7 +3,7 @@ on:
 
 jobs:
   job-name:
-    name: Matrix Job ${{ matrix == true && 'matrix.numb-matrix.numb' || ''}}
+    name: Matrix Job ${{ matrix.numb == true && matrix.numb || ''}}
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -12,7 +12,7 @@ jobs:
     steps:
       - run: echo "Done"
   job-name-yes:
-    name: Matrix Job ${{ matrix == true && 'matrix.numb-matrix.numb' || ''}}
+    name: Matrix Job ${{ matrix.numb == true && matrix.numb || ''}}
     runs-on: ubuntu-latest
     strategy:
       matrix:
