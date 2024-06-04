@@ -3,9 +3,7 @@ on:
 
 jobs:
   job-name:
-    env:
-      VAR: true
-    name: Matrix Jobs ${{ matrix != '' && 'matrix.numb here' || ''}}
+    name: Matrix Jobs ${{ matrix.numb || github.run_attempt }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
