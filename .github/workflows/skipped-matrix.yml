@@ -3,7 +3,7 @@ on:
 
 jobs:
   job-name:
-    name: Matrix Jobs ${{ matrix.numb || github.run_attempt }}
+    name: Matrix Jobs ${{ github.run_attempt }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
