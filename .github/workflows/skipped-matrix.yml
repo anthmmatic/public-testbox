@@ -3,6 +3,8 @@ on:
 
 jobs:
   job-name:
+    env:
+      VAR: true
     name: Matrix Jobs ${{ matrix != '' && 'matrix.numb here' || ''}}
     runs-on: ubuntu-latest
     strategy:
