@@ -3,7 +3,7 @@ on:
 
 jobs:
   generate-logs:
-    runs-on: ubuntu-8-core
+    runs-on: ubuntu-latest
     steps:
       - run: |
           for i in {1..10000}
