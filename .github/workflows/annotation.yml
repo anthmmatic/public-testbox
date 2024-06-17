@@ -1,0 +1,11 @@
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  job-name:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "::error file=test.json,line=3::Message for annotation"
+      - run: echo "::error file=test copy.json,line=3::Message for annotation"
