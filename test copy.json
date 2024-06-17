@@ -1,0 +1,12 @@
+{
+    "workflow_dispatch": [
+        "setup",
+        "primer-one",
+        "job-one"
+    ],
+    "push": [
+        "setup",
+        "primer-two",
+        "job-two"
+    ]
+}
