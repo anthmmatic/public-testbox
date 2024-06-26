@@ -1,6 +1,8 @@
 on:
   workflow_dispatch:
 
+concurrency: main
+
 jobs:
   deploy-multi-1:
     runs-on: ubuntu-latest
