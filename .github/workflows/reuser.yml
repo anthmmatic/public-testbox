@@ -1,8 +1,13 @@
 on:
   workflow_dispatch:
+  push:
 
 jobs:
-  job-main:
+  job-pass:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "done"
+  job-fail:
     uses: ./.github/workflows/reusewf.yml
     with:
-      id: 2
+      id: 1
