@@ -1,3 +1,5 @@
+name: My AA Workflow
+
 on:
   workflow_dispatch:
 
