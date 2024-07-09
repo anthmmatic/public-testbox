@@ -11,4 +11,4 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '21'
-      - uses: education/autograding@v1
+      - uses: education/autograding@f4c2d6fd9b2e1fca33575646d69b5cef172c4b36
