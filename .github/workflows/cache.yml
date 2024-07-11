@@ -6,8 +6,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "content for this file" > myfile.txt
-      - uses: actions/cache@v4
+      - uses: actions/cache@v3
         with:
           path: myfile.txt
-          key: for-my-file
+          key: for-my-file-postsave
       - run: cat myfile.txt
+
+  job-name-1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "content for this file" > myfile.txt
+      - uses: actions/cache/save@v3
+        with:
+          path: myfile.txt
+          key: for-my-file-savenow
+      - run: cat myfile.txt
+
+      
