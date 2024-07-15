@@ -1,0 +1,29 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    if: false
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'done'
+
+  job2:
+    if: (!cancelled() && !failure())
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'done'
+
+  job2a:
+    needs: [job1, job2]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'done'
+
+
+  job3:
+    needs: [job2]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'done'
