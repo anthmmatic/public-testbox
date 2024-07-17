@@ -6,8 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "content for this file" > myfile.txt
-      - uses: actions/cache@v4
+      - uses: actions/cache@v3.3.2
         with:
           path: myfile.txt
-          key: for-my-file-postsave3
+          key: for-my-file-postsave332
       - run: cat myfile.txt
