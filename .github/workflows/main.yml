@@ -8,8 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          for i in {1..3}
-          do
-             echo "$i"
-             sleep 60m
-          done
+          echo "this is the first step"
+
+          echo "::group::Check if \"check\" exists"
+          echo "content/ncontent/ncontent"
+          echo "::endgroup::"
+
+          echo "outer group"
