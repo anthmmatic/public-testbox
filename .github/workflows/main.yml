@@ -12,6 +12,6 @@ jobs:
 
           echo "::group::Check if \"check\" exists"
           echo "content/ncontent/ncontent"
-          echo "::endgroup::"
+          echo "\n::endgroup::"
 
           echo "outer group"
