@@ -1,19 +1,18 @@
 on:
+  #push:
+  #pull_request:
   workflow_dispatch:
 
 jobs:
-  job-success:
+  job-name:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          for run in {1..5000}; do
-            echo "Log line: $run"
-          done
-  job-fail:
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          for run in {1..5000}; do
-            echo "Log line: $run"
-          done
-          exit 1
+          echo "this is the first step"
+
+          echo "::group::Check if \"check\" exists"
+          echo "content/ncontent/ncontent"
+          echo "============="
+          echo "::endgroup::"
+
+          echo "outer group"
