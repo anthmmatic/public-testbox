@@ -12,7 +12,7 @@ jobs:
 
           echo "::group::Check if \"check\" exists"
           echo "content/ncontent/ncontent"
-          echo "/n"
+          echo "============="
           echo "::endgroup::"
 
           echo "outer group"
