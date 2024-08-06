@@ -1,18 +1,16 @@
 on:
-  #push:
-  #pull_request:
-  workflow_dispatch:
+  pull_request:
 
 jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - run: |
-          echo "this is the first step"
-
-          echo "::group::Check if \"check\" exists"
-          echo "content/ncontent/ncontent"
-          echo "============="
-          echo "::endgroup::"
-
-          echo "outer group"
+          PR_NUMBER=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
+          gh pr review $PR_NUMBER --comment -b "interesting"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
