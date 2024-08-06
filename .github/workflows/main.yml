@@ -15,6 +15,7 @@ jobs:
           fetch-depth: 0
       - run: |
           PR_NUMBER=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
-          gh pr review $PR_NUMBER --request-changes
+          echo "# 🚨 Missing translation keys 🚨" > review.md
+          gh pr review $PR_NUMBER --request-changes --body-file review.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
