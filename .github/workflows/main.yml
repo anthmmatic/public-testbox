@@ -1,18 +1,11 @@
 on:
   #push:
   #pull_request:
-  workflow_dispatch:
+  check_run:
+    types: [rerequested]
 
 jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          echo "this is the first step"
-
-          echo "::group::Check if \"check\" exists"
-          echo "content/ncontent/ncontent"
-          echo "============="
-          echo "::endgroup::"
-
-          echo "outer group"
+      - run: echo 'done'
