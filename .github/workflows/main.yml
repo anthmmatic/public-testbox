@@ -1,7 +1,7 @@
 on:
   workflow_dispatch:
   check_run:
-    types: [rerequested]
+    types: [created, rerequested]
 
 jobs:
   job-name:
