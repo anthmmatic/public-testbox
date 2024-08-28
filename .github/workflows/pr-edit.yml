@@ -1,0 +1,9 @@
+on:
+  pull_request:
+    types: edited
+
+jobs:
+  job-name:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "done"
