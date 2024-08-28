@@ -4,6 +4,7 @@ on:
 
 jobs:
   job-name:
+    if: github.event.changes.base
     runs-on: ubuntu-latest
     steps:
       - run: echo "${{ toJSON(github.event) }}"
