@@ -7,8 +7,8 @@ jobs:
     steps:
       - run: sleep 120
         timeout-minutes: 1
-      - if: '!success()'
-        run: |
-          echo "${{ failure() }}"
-          echo "${{ cancelled() }}"
+      - if: 'failure()'
+        run: echo 'failure'
+      - if: 'cancelled()'
+        run: echo 'cancelled'
       - run: echo 'third-step'
