@@ -4,12 +4,7 @@ on:
 jobs:
   job-name:
     runs-on: ubuntu-latest
+    permissions:
+      packages: read
     steps:
-      - run: sleep 120
-        timeout-minutes: 1
-        continue-on-error: true
-      - if: 'failure()'
-        run: echo 'failure'
-      - if: 'cancelled()'
-        run: echo 'cancelled'
-      - run: echo 'third-step'
+      - run: npm install @anthmmatic/npm-not-linked@1.0.0
