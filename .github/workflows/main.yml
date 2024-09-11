@@ -6,6 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: alpine
-      options: "MYENV=value"
+      options: |
+        -e "MYENV=value"
+        -e "MYENVTWO=${{secrets.MYSEC}}"
     steps:
-      - run: echo "${MYENV}"
+      - run: |
+          echo "${MYENV}"
+          echo "${MYENVTWO}"
