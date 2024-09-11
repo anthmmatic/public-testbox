@@ -4,13 +4,8 @@ on:
 jobs:
   job-name:
     runs-on: ubuntu-latest
-    permissions:
-      packages: read
+    container:
+      image: alpine
+      options: "MYENV=value"
     steps:
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20.x'
-          registry-url: 'https://npm.pkg.github.com'
-      - run: npm install @anthmmatic/npm-not-linked@1.0.0
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: echo "${MYENV}"
