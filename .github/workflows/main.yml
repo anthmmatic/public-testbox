@@ -2,14 +2,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  job-name:
+  things:
     runs-on: ubuntu-latest
-    container:
-      image: alpine
-      options: |
-        -e "MYENV=value"
-        -e "MYENVTWO=${{secrets.MYSEC}}"
     steps:
       - run: |
-          echo "${MYENV}"
-          echo "${MYENVTWO}"
+          echo "This is summary content" >> $GITHUB_STEP_SUMMARY
+          echo "::warning ::This is a warning annotation"
+
+          echo "file content" > text.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          path: text.txt
+          retention-days: 1
