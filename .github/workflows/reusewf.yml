@@ -5,13 +5,12 @@ on:
       id:
         required: true
         type: string
+      id2:
+        type: string
 
 jobs:
   job-name:
+    environment: ${{ inputs.id2 }}
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          if [[ ${{ inputs.id }} -eq 1 ]]; then
-            exit 1
-          fi
-          sleep 60
+      - run: echo 'done'
