@@ -5,12 +5,4 @@ jobs:
   things:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          echo "This is summary content" >> $GITHUB_STEP_SUMMARY
-          echo "::warning ::This is a warning annotation"
-
-          echo "file content" > text.txt
-      - uses: actions/upload-artifact@v4
-        with:
-          path: text.txt
-          retention-days: 1
+      - uses: ErmeticCustomer1/example-action@v1
