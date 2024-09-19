@@ -4,5 +4,6 @@ on:
 jobs:
   things:
     runs-on: ubuntu-latest
+    environment: prod, feat
     steps:
-      - uses: ErmeticCustomer1/example-action@v1
+      - run: echo 'done'
