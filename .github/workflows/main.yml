@@ -8,6 +8,5 @@ jobs:
         os: [ 'ubuntu', 'windows', 'macos' ]
     runs-on: '${{ matrix.os }}-latest'
     steps:
-      - run: ls /etc
-      - run: ls ~/etc
-      - run: cat /etc/ssh_config
+      - run: cat /etc/ssh/ssh_config
+        shell: bash
