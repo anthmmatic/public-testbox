@@ -2,8 +2,12 @@ on:
   workflow_dispatch:
 
 jobs:
-  things:
-    runs-on: ubuntu-latest
-    environment: prod, feat
+  test:
+    strategy:
+      matrix:
+        os: [ 'ubuntu', 'windows', 'macos' ]
+    runs-on: '${{ matrix.os }}-latest'
     steps:
-      - run: echo 'done'
+      - run: ls /etc
+      - run: ls ~/etc
+      - run: cat /etc/ssh_config
