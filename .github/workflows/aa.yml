@@ -1,5 +1,3 @@
-name: My AA Workflow
-
 on:
   workflow_dispatch:
 
@@ -7,4 +5,7 @@ jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'done'
+      - run: |
+          formatted_note="こんにちは"
+          echo "release_note=$formatted_note" >> $GITHUB_ENV
+      - run: echo ${{ env.release_note }}
