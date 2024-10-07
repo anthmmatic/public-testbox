@@ -1,0 +1,13 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  job-name:
+    name: Matrix Jobs ${{ github.run_attempt }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        numb: [0,1,2,3]
+    if: false
+    steps:
+      - run: echo "Done"

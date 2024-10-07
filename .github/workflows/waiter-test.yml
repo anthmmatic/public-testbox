@@ -1,0 +1,19 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  to-run:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          for i in {0..59}
+          do
+             echo "loop $i";
+             sleep 1;
+          done
+
+  to-wait:
+    runs-on: ubuntu-latest
+    environment: waiter-1
+    steps:
+      - run: echo "Done."

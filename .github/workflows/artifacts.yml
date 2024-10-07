@@ -1,0 +1,14 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "TEST FILE CONTENT" > test.txt
+      - uses: actions/upload-artifact@v2
+        with:
+          name: my-art-${{ github.run_attempt }}
+          path: test.txt
+      - run: echo "my content here" >> $GITHUB_STEP_SUMMARY
+      - run: exit 1
