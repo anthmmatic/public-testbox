@@ -3,10 +3,7 @@ on:
 
 jobs:
   test:
-    strategy:
-      matrix:
-        os: [ 'ubuntu', 'windows', 'macos' ]
-    runs-on: '${{ matrix.os }}-latest'
+    runs-on: 'ubuntu-latest'
     steps:
-      - run: cat /etc/ssh/ssh_config
-        shell: bash
+      - run: echo $NOVAR >> $GITHUB_STEP_SUMMARY
+
