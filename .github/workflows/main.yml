@@ -5,5 +5,5 @@ jobs:
   test:
     runs-on: 'ubuntu-latest'
     steps:
-      - run: echo $NOVAR >> $GITHUB_STEP_SUMMARY
-
+      - run: |
+          echo $GITHUB_REF
