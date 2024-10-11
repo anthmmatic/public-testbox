@@ -1,0 +1,13 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  job-name:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "content for this file" > myfile.txt
+      - uses: actions/cache@v3.3.2
+        with:
+          path: myfile.txt
+          key: for-my-file-postsave332
+      - run: cat myfile.txt

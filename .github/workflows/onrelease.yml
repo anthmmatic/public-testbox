@@ -1,0 +1,23 @@
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+  
+jobs:
+  job-name:
+    if: startsWith('refs/tags', github.event.ref) || github.event.release.tag_name
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "WD - ${{ github.event.ref }}"
+          echo "RL - ${{ github.event.release.tag_name }}"
+      - if: ${{ github.event_name == 'release' }}
+        run: echo "REF_TAG=${{ github.event.pull_request || format('refs/tags/{0}', github.event.release.tag_name) }}" >> "$GITHUB_ENV"
+
+      - run: echo "${{ github.ref }}"
+      - run: echo "$REF_TAG"
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.REF_TAG }}
+      - if: ${{ startsWith(env.REF_TAG || github.ref, 'refs/heads/') }}
+        run: echo "$REF_TAG equals ${{ github.ref }}"
