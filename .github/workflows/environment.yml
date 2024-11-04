@@ -3,11 +3,25 @@ on:
 
 jobs:
   deploy-multi:
+    if: false
     runs-on: ubuntu-latest
     environment: prod
     strategy:
       matrix:
         prefix: ["0", "1", "2", "3", "4", "5"]
       max-parallel: 2
+    steps:
+      - run: echo "done"
+
+  deploy-condit:
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - run: echo "done"
+
+  the-condit:
+    needs: deploy-condit
+    runs-on: ubuntu-latest
+    environment: prod
     steps:
       - run: echo "done"
