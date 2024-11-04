@@ -20,7 +20,6 @@ jobs:
       - run: echo "done"
 
   the-condit:
-    needs: deploy-condit
     runs-on: ubuntu-latest
     environment: prod
     steps:
