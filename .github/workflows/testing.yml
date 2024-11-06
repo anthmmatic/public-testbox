@@ -4,6 +4,9 @@ on:
 jobs:
   job-name:
     runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      packages: read
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
