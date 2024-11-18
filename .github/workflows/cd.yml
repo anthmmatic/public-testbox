@@ -9,7 +9,7 @@ jobs:
   job-name:
     runs-on: ubuntu-latest
     env:
-      ENVTHIS: ${{ contains(github.event.workflow_run.head_branch, 'nhg') && 'ALL SET' }}
+      ENVTHIS: ${{ contains(github.event.workflow_run.head_branch, 'nhg') && 'ALL SET' || '' }}
     steps:
       - run: echo "${{ toJSON(github.event.workflow_run) }}"
       - run: echo $ENVTHIS
