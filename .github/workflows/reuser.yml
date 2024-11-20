@@ -6,4 +6,5 @@ jobs:
     uses: ./.github/workflows/reusewf.yml
     with:
       id: dev
-    secrets: inherit
+    secrets:
+      passed: ${{ secrets.DEV_ENV }}
