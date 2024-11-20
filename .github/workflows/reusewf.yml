@@ -7,10 +7,13 @@ on:
         type: string
       id2:
         type: string
+    secrets:
+      passed:
+        required: true
 
 jobs:
   job-name:
     environment: ${{ inputs.id }}
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ secrets.DEV_ENV }}"
+      - run: echo "${{ secrets.passed }}"
