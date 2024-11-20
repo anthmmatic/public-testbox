@@ -5,4 +5,4 @@ jobs:
   job-main:
     uses: ./.github/workflows/reusewf.yml
     with:
-      id: 2
+      id: dev
