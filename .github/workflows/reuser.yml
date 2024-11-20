@@ -7,4 +7,4 @@ jobs:
     with:
       id: dev
     secrets:
-      passed: ${{ secrets.DEV_ENV }}
+      DEV_ENV: ${{ secrets.DEV_ENV }}
