@@ -10,7 +10,7 @@ on:
 
 jobs:
   job-name:
-    environment: ${{ inputs.id2 }}
+    environment: ${{ inputs.id }}
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'done'
+      - run: echo "${{ secrets.DEV_ENV }}"
