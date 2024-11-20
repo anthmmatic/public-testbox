@@ -8,7 +8,7 @@ on:
       id2:
         type: string
     secrets:
-      passed:
+      DEV_ENV:
         required: true
 
 jobs:
@@ -16,4 +16,4 @@ jobs:
     environment: ${{ inputs.id }}
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ secrets.passed }}"
+      - run: echo "${{ secrets.DEV_ENV }}"
