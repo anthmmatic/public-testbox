@@ -1,11 +1,8 @@
 on:
-  workflow_dispatch:
-    inputs:
-      failthis:
-        type: boolean
+  push:
 
 jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - run: exit ${{ inputs.failthis }}
+      - run: exit $((RANDOM % 2))
