@@ -2,8 +2,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
-    runs-on: [ ubuntu-latest, self-hosted ]
+  job1:
+    name: "👩🏾‍🔬 Compilation: Test Name"
+    runs-on: ubuntu-latest
     steps:
-      - run: |
-          echo "${{ secrets.A_PAGE }}"
+      - run: echo 'done'
