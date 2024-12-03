@@ -5,13 +5,21 @@ jobs:
   upload:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "TEST FILE CONTENT" > test.txt
+      - run: |
+          mkdir publish
+          cd publish
+          echo "TEST FILE CONTENT" > test.txt
+          echo "TEST2" > test2.txt
+      - run: |
+          ls
+          ls ./publish
       - uses: actions/upload-artifact@v4
         with:
           name: my-art-${{ github.run_attempt }}
-          path: test.txt
+          path: ./publish
 
   get-redirect:
+    if: false
     needs: upload
     runs-on: ubuntu-latest
     steps:
