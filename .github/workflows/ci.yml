@@ -1,9 +1,11 @@
+name: CI
+
 on:
+  push:
   workflow_dispatch:
 
 jobs:
-  job1:
-    name: "👩🏾‍🔬 Compilation: Test Name"
+  job-name:
     runs-on: ubuntu-latest
     steps:
       - run: echo 'done'
