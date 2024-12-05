@@ -5,6 +5,5 @@ jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - uses: meteorengineer/setup-meteor@v2
-        with:
-          meteor-release: 2.16
+      - uses: actions/checkout@v4
+      - run: cat README.md >> $GITHUB_STEP_SUMMARY
