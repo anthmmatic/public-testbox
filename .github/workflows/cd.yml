@@ -1,0 +1,15 @@
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: [CI]
+    types:
+      - completed
+
+jobs:
+  job-name:
+    runs-on: ubuntu-latest
+    env:
+      ENVTHIS: ${{ (github.event.workflow_run.head_branch == 'releases/nhg') && 'ALL SET' || '' }}
+    steps:
+      - run: echo "${{ toJSON(github.event.workflow_run) }}"
+      - run: echo $ENVTHIS

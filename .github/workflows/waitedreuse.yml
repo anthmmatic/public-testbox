@@ -1,0 +1,9 @@
+on:
+  workflow_call:
+
+jobs:
+  job-name:
+    concurrency: group-one
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Done"

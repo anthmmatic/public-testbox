@@ -1,19 +1,11 @@
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '1/5 * * * *'
 
 jobs:
-  job-success:
+  job1:
+    name: "👩🏾‍🔬 Compilation: Test Name"
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          for run in {1..5000}; do
-            echo "Log line: $run"
-          done
-  job-fail:
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          for run in {1..5000}; do
-            echo "Log line: $run"
-          done
-          exit 1
+      - run: echo 'done'

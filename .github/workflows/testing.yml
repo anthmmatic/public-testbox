@@ -1,0 +1,23 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  job-name:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      packages: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.13'
+          
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install pygments bs4 lxml git+https://github.com/capjamesg/aurora
+      
