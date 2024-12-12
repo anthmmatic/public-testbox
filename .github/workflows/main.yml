@@ -1,11 +1,10 @@
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '1/5 * * * *'
 
 jobs:
   job1:
     name: "👩🏾‍🔬 Compilation: Test Name"
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
-      - run: echo 'done'
+      - run: ls -la .
+        shell: bash
