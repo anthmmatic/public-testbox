@@ -1,0 +1,10 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  job-main:
+    uses: ./.github/workflows/reusewf.yml
+    with:
+      id: dev
+    secrets:
+      DEV_ENV: ${{ secrets.DEV_ENV }}
