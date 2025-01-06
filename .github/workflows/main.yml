@@ -2,9 +2,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  job1:
-    name: "👩🏾‍🔬 Compilation: Test Name"
-    runs-on: windows-latest
+  create-cache-key:
+    name: Create cache key
+    runs-on: macos-13
+    env:
+      RUSTUP_HOME: /root/.rustup
     steps:
       - run: ls -la .
         shell: bash
