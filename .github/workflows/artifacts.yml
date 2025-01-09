@@ -13,7 +13,7 @@ jobs:
       - run: |
           ls
           ls ./publish
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v3
         with:
           name: my-art-${{ github.run_attempt }}
           path: ./publish
