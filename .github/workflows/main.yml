@@ -7,4 +7,10 @@ jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - run: env -i DEBIAN_FRONTEND=noninteractive sudo apt-get install -y qemu-system-arm
+      - run: sudo apt-get install -y qemu-system-arm
+
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sudo apt-get install -y qemu-system-arm --fix-missing
