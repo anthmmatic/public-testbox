@@ -5,4 +5,6 @@ jobs:
   job-main:
     uses: ./.github/workflows/reusewf.yml
     with:
-      id: 2
+      id: dev
+    secrets:
+      DEV_ENV: ${{ secrets.DEV_ENV }}

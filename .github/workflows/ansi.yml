@@ -1,0 +1,57 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  standard:
+    runs-on: 'ubuntu-22.04'
+    steps:
+      - shell: python
+        run: |
+          print("The following must print a red line but it does not:")
+          print("\033[48;2;255;0;0m                                  ")
+          
+          print("It only prints the line if it has a non-space character:")
+          print("\033[48;2;255;0;0m               X                  ")
+          
+          print("Leading spaces are normally respected:")
+          print("                        \033[48;2;255;0;0m     X    ")
+          
+          print("But not when they are enclosed by ANSI code:")
+          print("\033[48;2;255;0;0m                       \033[0m  X ")
+          
+          print(
+            "Basically, all segments containing only spaces are ignored "
+            "when enclosed between two ANSI sequences, "
+            "or one ANSI sequence and the end of the line:"
+          )
+          print("\033[48;2;255;0;0m         \033[48;2;0;255;0m           \033[48;2;0;0;255m          ")
+
+  upgrade:
+    runs-on: 'ubuntu-22.04'
+    strategy:
+      matrix:
+        ver: ['3.9', '3.10', '3.11']
+    steps:
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.ver }}
+      - shell: python
+        run: |
+          print("The following must print a red line but it does not:")
+          print("\033[48;2;255;0;0m                                  ")
+          
+          print("It only prints the line if it has a non-space character:")
+          print("\033[48;2;255;0;0m               X                  ")
+          
+          print("Leading spaces are normally respected:")
+          print("                        \033[48;2;255;0;0m     X    ")
+          
+          print("But not when they are enclosed by ANSI code:")
+          print("\033[48;2;255;0;0m                       \033[0m  X ")
+          
+          print(
+            "Basically, all segments containing only spaces are ignored "
+            "when enclosed between two ANSI sequences, "
+            "or one ANSI sequence and the end of the line:"
+          )
+          print("\033[48;2;255;0;0m         \033[48;2;0;255;0m           \033[48;2;0;0;255m          ")
