@@ -1,0 +1,11 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  job-name:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl -o apache-maven-3.8.8-bin.tar.gz -L https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.8.8/apache-maven-3.8.8-bin.tar.gz
+          tar xzvf ./apache-maven-3.8.8-bin.tar.gz
+          mvn -v
