@@ -5,7 +5,13 @@ jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          curl -o apache-maven-3.8.8-bin.tar.gz -L https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.8.8/apache-maven-3.8.8-bin.tar.gz
-          tar xzvf ./apache-maven-3.8.8-bin.tar.gz
-          mvn -v
+      - name: Install latest Maven
+        run: |
+          wget https://downloads.apache.org/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz
+          tar xzvf apache-maven-$MAVEN_VERSION-bin.tar.gz
+          sudo mv apache-maven-$MAVEN_VERSION /opt/maven
+          sudo rm -f /usr/bin/mvn  # Remove existing symbolic link if it exists
+          sudo ln -s /opt/maven/bin/mvn /usr/bin/mvn  # Create new symbolic link
+        env:
+          MAVEN_VERSION: 3.8.8
+      - run: mvn --version
