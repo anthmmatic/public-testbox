@@ -2,9 +2,11 @@ on:
   workflow_dispatch:
   workflow_call:
 
+env:
+  PR_NUMBER: ${{ github.event.number }}
+
 jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: anthmmatic/public-testbox/.github/actions/my-act@main
+      - run: echo 'done'
