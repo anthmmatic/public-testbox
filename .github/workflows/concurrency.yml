@@ -3,15 +3,13 @@ on:
 
 jobs:
   job1:
-    concurrency:
-      group: ${{ github.ref != 'refs/heads/main' && format('{0}-{1}', github.workflow, github.ref) || github.job }}
+    concurrency: ${{ github.ref != 'refs/heads/main' && github.run_id || github.job }}
     runs-on: ubuntu-latest
     steps:
       - run: sleep 30
 
   job2:
-    concurrency:
-      group: ${{ github.ref != 'refs/heads/main' && format('{0}-{1}', github.workflow, github.ref) || github.job }}
+    concurrency: ${{ github.ref != 'refs/heads/main' && github.run_id || github.job }}
     runs-on: ubuntu-latest
     steps:
       - run: sleep 30
