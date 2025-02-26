@@ -1,0 +1,25 @@
+on:
+  workflow_dispatch:
+    inputs:
+      filename:
+        description: 'Workflow Name'
+        required: true
+        type: string
+      ref:
+        description: 'Ref Name'
+        required: true
+        type: string
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - run: | 
+          curl -L \
+          -X POST \
+          -H "Accept: application/vnd.github+json" \
+          -H "Authorization: Bearer ${{ github.token }}" \
+          -H "X-GitHub-Api-Version: 2022-11-28" \
+          https://api.github.com/repos/${{ github.repository }}/actions/workflows/${{ inputs.filename }}/dispatches \
+          -d '{"ref":"${{ inputs.ref }}"}'
+          
