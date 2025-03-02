@@ -8,4 +8,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: echo "::error file=test.json,line=3::Message for annotation"
-      - run: echo "::error file=test copy.json,line=3::Message for annotation"
+      - run: echo "::error file=test%20copy.json,line=3::Message for annotation"
