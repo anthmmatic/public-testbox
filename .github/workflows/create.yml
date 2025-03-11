@@ -1,0 +1,13 @@
+on: 
+  create:
+  workflow_dispatch:
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Content" > file.txt
+      - uses: actions/cache@v3
+        with:
+          path: file.txt
+          key: valueone
