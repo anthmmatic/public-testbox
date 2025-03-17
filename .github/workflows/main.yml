@@ -4,9 +4,6 @@ on:
       val1:
         description: 'val1'
         type: string
-      val2:
-        description: 'val2'
-        type: string
 
 jobs:
   job-name:
