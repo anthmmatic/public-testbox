@@ -1,0 +1,13 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  job-name:
+    runs-on: ubuntu-latest
+    steps:
+      - run: df -H
+      - run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /usr/local/lib/android
+          sudo rm -rf /opt/ghc
+      - run: df -H
