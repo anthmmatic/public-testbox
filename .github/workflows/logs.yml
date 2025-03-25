@@ -4,14 +4,9 @@ on:
 jobs:
   generate-logs:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        num: [0,1,2,3,4,5]
     steps:
       - run: |
-          for i in {1..10000000}
+          for i in {1..200}
           do
-             echo -e "\033[31mLogline:$i\033[0m"
-             echo -e "\033[32mLogline:$i\033[0m"
-             echo -e "\033[33mLogline:$i\033[0m"
+             echo "Logline: $i"
           done
