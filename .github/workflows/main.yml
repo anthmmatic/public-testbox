@@ -1,17 +1,8 @@
 on:
   workflow_dispatch:
-    inputs:
-      val1:
-        description: 'val1'
-        type: string
-      val2:
-        description: 'val2'
-        type: string
 
 jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'step 1'
-      - run: echo 'step 2'
-      - run: echo 'step 3'
+      - run: echo $RUNNER_NAME
