@@ -1,8 +1,11 @@
+name: CI
+
 on:
+  push:
   workflow_dispatch:
 
 jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - run: echo $RUNNER_NAME
+      - run: echo 'done'

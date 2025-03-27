@@ -1,8 +1,8 @@
 on:
-  workflow_dispatch:
+  push:
 
 jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - run: echo $RUNNER_NAME
+      - run: exit $((RANDOM % 2))

@@ -1,8 +1,8 @@
 on:
-  workflow_dispatch:
+  workflow_call:
 
 jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - run: echo $RUNNER_NAME
+      - run: echo "Done"

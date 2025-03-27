@@ -1,0 +1,11 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  job-name:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ids: [0,1,2,3,4,5,6]
+    steps:
+      - run: echo "${{ github.job }}"
