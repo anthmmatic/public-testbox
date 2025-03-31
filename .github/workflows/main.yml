@@ -11,5 +11,4 @@ jobs:
         curl -L https://nodejs.org/dist/v15.14.0/node-v15.14.0-linux-x64.tar.xz -o node-v15.14.0-linux-x64.tar.xz
     - name: Extract Node.js
       run: |
-        tar -xf node-v15.14.0-linux-x64.tar.xz
-    - run: mv node-v15.14.0-linux-x64 nodejs
+        tar -xf node-v15.14.0-linux-x64.tar.xz --verbose
