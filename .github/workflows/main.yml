@@ -12,3 +12,4 @@ jobs:
     - name: Extract Node.js
       run: |
         tar -xvvf node-v15.14.0-linux-x64.tar.xz
+      shell: bash
