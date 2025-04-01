@@ -1,0 +1,8 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  job-main:
+    uses: ./.github/workflows/reusewf.yml
+    with:
+      id: windows_building, ${{ toJSON(matrix) }}

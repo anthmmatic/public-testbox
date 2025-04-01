@@ -1,0 +1,12 @@
+on:
+  push:
+
+jobs:
+  job-name:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Before SHA: ${{ github.event.before }}"
+          echo "After SHA: ${{ github.event.after }}"
+          echo "Commits:\n ${{ toJSON(github.event.commits) }}"
+          
