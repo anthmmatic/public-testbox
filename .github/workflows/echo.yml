@@ -3,6 +3,6 @@ on:
 
 jobs:
   job-name:
-    runs-on: ubuntu-latest
-    steps:
-     - run: echo "${{ toJSON(matrix) }}"
+    uses: dangey-test-org/public-testing/.github/workflows/reusable.yml@main
+    with:
+      input1: ${{ toJSON(matrix) }}
