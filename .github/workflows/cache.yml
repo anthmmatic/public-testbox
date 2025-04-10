@@ -6,7 +6,7 @@ jobs:
     runs-on: windows-2019
     steps:
       - run: echo "content for this file" > myfile.txt
-      - uses: actions/cache@v3
+      - uses: actions/cache@v2
         with:
           path: myfile.txt
           key: https://github.com/anthmmatic/public-testbox.git
