@@ -1,0 +1,8 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  job-name:
+    uses: dangey-test-org/public-testing/.github/workflows/reusable.yml@main
+    with:
+      input1: ${{ toJSON(matrix) }}

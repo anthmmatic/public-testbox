@@ -1,0 +1,8 @@
+on:
+  push:
+
+jobs:
+  job-name:
+    runs-on: ubuntu-latest
+    steps:
+      - run: exit $((RANDOM % 2))
