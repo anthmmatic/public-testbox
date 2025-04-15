@@ -9,4 +9,4 @@ jobs:
       - uses: jdx/mise-action@v2
         with:
           log_level: debug
-      - run: bin/mise uninstall envsubst
+      - run: mise uninstall envsubst
