@@ -1,0 +1,21 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  first:
+    runs-on: ubuntu-latest
+    steps:
+      - run: exit 0
+      
+  second:
+    needs: first
+    runs-on: ubuntu-latest
+    steps:
+      - run: exit 1
+
+  third:
+    needs: second
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'done'

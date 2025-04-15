@@ -1,0 +1,28 @@
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      jbjson: ${{ steps.setter.outputs.json }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: setter
+        run: |
+          event_name=${{github.event_name}}
+          jobs=$(jq -c 'reduce .'$event_name'[] as $prop ({}; .[$prop] = "true")' test.json)
+          echo "json=$jobs" >> "$GITHUB_OUTPUT"
+          echo "jobs=$jobs"
+          
+  primer-two:
+    needs: setup
+    env:
+      job-name: ${{ github.job }}
+    if: ${{ fromJson(needs.setup.outputs.jbjson)[env.job-name] }}
+    runs-on: ubuntu-latest
+    steps:
+      - id: test
+        run: |
+          echo ${{toJson(github.job)}}

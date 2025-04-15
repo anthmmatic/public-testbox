@@ -1,0 +1,2 @@
+[tools]
+envsubst = { version = '1.4.3' }

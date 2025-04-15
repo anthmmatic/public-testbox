@@ -1,0 +1,12 @@
+on:
+  workflow_dispatch:
+  
+jobs:
+  job-name:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: jdx/mise-action@v2
+        with:
+          log_level: debug
+      - run: mise uninstall envsubst
