@@ -1,6 +1,7 @@
 on:
   workflow_dispatch:
-
+env:
+  MISE_EXPERIMENTAL: true
 jobs:
   job-name:
     runs-on: ubuntu-latest
