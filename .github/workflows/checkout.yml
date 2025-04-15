@@ -3,6 +3,8 @@ on:
 
 jobs:
   job-name:
-    runs-on: ${{ secrets.MSECRETYOS }}
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
