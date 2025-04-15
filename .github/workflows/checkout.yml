@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: git config --local --get remote.origin.url
+      - uses: jdx/mise-action@v2
