@@ -9,5 +9,6 @@ jobs:
       GIT_CURL_VERBOSE: 1
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: jdx/mise-action@v2
-      - run: git config --local --get remote.origin.url
