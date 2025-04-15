@@ -4,11 +4,8 @@ on:
 jobs:
   job-name:
     runs-on: ubuntu-latest
-    env:
-      GIT_TRACE: 1
-      GIT_CURL_VERBOSE: 1
     steps:
       - uses: actions/checkout@v4
-        with:
-          persist-credentials: false
       - uses: jdx/mise-action@v2
+        with:
+          log_level: debug
