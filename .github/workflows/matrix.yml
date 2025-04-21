@@ -9,5 +9,5 @@ jobs:
         os: [ ubuntu-latest, windows-latest, macos-latest, no-runner]
         ids: [0,1,2]
     steps:
-      - run: sleep 30s
+      - run: sleep 30
         shell: bash
