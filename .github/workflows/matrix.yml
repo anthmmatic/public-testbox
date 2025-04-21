@@ -3,9 +3,10 @@ on:
 
 jobs:
   job-name:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        ids: [0,1,2,3,4,5,6]
+        os: [ ubuntu-latest, windows-latest, macos-latest]
+        ids: [0,1,2]
     steps:
-      - run: echo "${{ github.job }}"
+      - run: sleep 30s
