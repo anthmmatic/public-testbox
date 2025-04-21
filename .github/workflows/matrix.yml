@@ -7,7 +7,7 @@ jobs:
     strategy:
       matrix:
         os: [ ubuntu-latest, windows-latest, macos-latest, no-runner]
-        ids: [0,1,2]
+        ids: [0,1,2,3,4]
     steps:
       - run: sleep 30
         shell: bash
