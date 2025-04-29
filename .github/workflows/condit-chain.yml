@@ -1,18 +1,21 @@
 on:
   workflow_dispatch:
-  workflow_call:
 
 jobs:
-  init:
-    strategy:
-      matrix:
-        id: [0,1,2,3,4]
-    uses: ./.github/workflows/reusewf.yml
-    with:
-      id: ${{ matrix.id }}
-  dep:
-    needs: init
-    if: (!cancelled() && !failure() && needs.init.result != 'cancelled')
+  first:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ needs.init.result }}
+      - run: exit 0
+      
+  second:
+    needs: first
+    runs-on: ubuntu-latest
+    steps:
+      - run: exit 1
+
+  third:
+    needs: second
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'done'

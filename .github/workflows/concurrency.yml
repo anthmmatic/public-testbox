@@ -1,9 +1,12 @@
 on:
   workflow_dispatch:
+  push:
+
+concurrency:
+  group: ${{ github.ref != 'refs/heads/main' && format('{0}-{1}', github.workflow, github.ref) || github.run_id }}
 
 jobs:
-  job-name:
-    concurrency: my-group
+  job1:
     runs-on: ubuntu-latest
     steps:
-      - run: sleep 120
+      - run: sleep 60

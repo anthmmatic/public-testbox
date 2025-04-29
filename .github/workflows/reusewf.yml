@@ -5,11 +5,6 @@ on:
       id:
         required: true
         type: string
-      id2:
-        type: string
-    secrets:
-      DEV_ENV:
-        required: true
 
 jobs:
   job-name:

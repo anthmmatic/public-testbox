@@ -3,11 +3,11 @@ on:
 
 jobs:
   job-name:
-    runs-on: ubuntu-latest
+    runs-on: windows-2019
     steps:
       - run: echo "content for this file" > myfile.txt
-      - uses: actions/cache@v3.3.2
+      - uses: actions/cache@v3.0.0
         with:
           path: myfile.txt
-          key: for-my-file-postsave332
+          key: https://github.com/anthmmatic/public-testbox.git
       - run: cat myfile.txt
