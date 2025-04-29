@@ -12,8 +12,8 @@ jobs:
       - name: Compute matrix
         id: set-matrix
         run: |
-          VAL=$(cat test.json)
-          echo "matrix=${{ fromJSON($VAL) }}" >> "$GITHUB_OUTPUT"
+          VAL=$(cat test.json | tr -d '\n')
+          echo "matrix=$VAL" >> "$GITHUB_OUTPUT"
 
   build:
     needs:
