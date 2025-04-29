@@ -13,7 +13,7 @@ jobs:
         id: set-matrix
         run: |
           VAL=$(cat test.json)
-          echo "matrix=$VAL" >> "$GITHUB_OUTPUT"
+          echo "matrix=${{ fromJSON($VAL) }}" >> "$GITHUB_OUTPUT"
 
   build:
     needs:
