@@ -19,7 +19,7 @@ jobs:
     needs:
       - setup
     strategy:
-      matrix: ${{ fromJson(needs.plan.outputs.matrix) }}
+      matrix: ${{ fromJson(needs.setup.outputs.matrix) }}
       fail-fast: false
     name: ${{ matrix.plan.mode.platformIndependent == true && matrix.plan.mode.name || format('{0} / {1}', matrix.plan.platform.name, matrix.plan.mode.name) }}
     runs-on: ubuntu-latest
