@@ -1,12 +1,58 @@
 {
-    "workflow_dispatch": [
-        "setup",
-        "primer-one",
-        "job-one"
-    ],
-    "push": [
-        "setup",
-        "primer-two",
-        "job-two"
-    ]
+  "plan": [
+    {
+      "platform": {
+        "name": "Ubuntu 24.04 (amd64)",
+        "os": "ubuntu-24.04",
+        "buildEnvScript": ".github/scripts/build_env/ubuntu.sh",
+        "essential": true,
+        "env": {},
+        "cacheKey": "ubuntu2404-amd64",
+        "artifactMarker": "amd64-ubuntu2404",
+        "isBroken": false
+      },
+      "mode": {
+        "name": "cargo build",
+        "cargoCommand": "build",
+        "cargoArgs": "--locked --workspace --release",
+        "cargoCacheKey": "release-build"
+      }
+    },
+    {
+      "platform": {
+        "name": "Ubuntu 24.04 (aarch64)",
+        "os": "ubuntu-24.04-arm",
+        "buildEnvScript": ".github/scripts/build_env/ubuntu.sh",
+        "essential": false,
+        "env": {},
+        "cacheKey": "ubuntu2404-aarch64",
+        "artifactMarker": "aarch64-ubuntu2404",
+        "isBroken": false
+      },
+      "mode": {
+        "name": "cargo build",
+        "cargoCommand": "build",
+        "cargoArgs": "--locked --workspace --release",
+        "cargoCacheKey": "release-build"
+      }
+    },
+    {
+      "platform": {
+        "name": "macOS 15 (aarch64)",
+        "os": "macos-15",
+        "buildEnvScript": ".github/scripts/build_env/macos.sh",
+        "essential": false,
+        "env": {},
+        "cacheKey": "macos15-aarch64",
+        "artifactMarker": "aarch64",
+        "isBroken": false
+      },
+      "mode": {
+        "name": "cargo build",
+        "cargoCommand": "build",
+        "cargoArgs": "--locked --workspace --release",
+        "cargoCacheKey": "release-build"
+      }
+    }
+  ]
 }
