@@ -4,6 +4,7 @@ on:
 jobs:
   job-name:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
       - run: |
           curl -s \
