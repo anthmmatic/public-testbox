@@ -7,7 +7,7 @@ jobs:
     permissions: write-all
     steps:
       - run: |
-          curl -s \
+          curl -s -i \
             -X PATCH \
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
