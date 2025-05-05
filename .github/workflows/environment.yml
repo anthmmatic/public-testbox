@@ -1,0 +1,26 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-multi:
+    if: false
+    runs-on: ubuntu-latest
+    environment: main
+    strategy:
+      matrix:
+        prefix: ["0", "1", "2", "3", "4", "5"]
+      max-parallel: 2
+    steps:
+      - run: echo "done"
+
+  deploy-condit:
+    runs-on: ubuntu-latest
+    environment: main
+    steps:
+      - run: echo "done"
+
+  the-condit:
+    runs-on: ubuntu-latest
+    environment: main
+    steps:
+      - run: echo "done"

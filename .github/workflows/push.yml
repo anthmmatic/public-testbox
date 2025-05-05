@@ -1,9 +1,10 @@
 on:
+  push:
   workflow_dispatch:
 
 jobs:
-  job-one:
+  job-name:
+    environment: dev
     runs-on: ubuntu-latest
     steps:
-      - run: cat /proc/meminfo
-      - run: lshw
+      - run: echo "done"

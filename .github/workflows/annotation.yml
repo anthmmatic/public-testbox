@@ -1,0 +1,11 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  job-name:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "::notice title=Notice custom title value::notice message stuff"
+          echo "::warning title=Warning custom title value::warning message stuff"
+          echo "::error title=Error custom title value::error message stuff"

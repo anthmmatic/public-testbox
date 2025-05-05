@@ -2,7 +2,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  jobone:
+  job-name:
     uses: dangey-test-org/public-testing/.github/workflows/reusable.yml@main
     with:
       input1: ${{ toJSON(matrix) }}

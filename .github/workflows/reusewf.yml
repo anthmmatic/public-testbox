@@ -8,10 +8,7 @@ on:
 
 jobs:
   job-name:
+    environment: ${{ inputs.id }}
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          if [[ ${{ inputs.id }} -eq 1 ]]; then
-            exit 1
-          fi
-          sleep 60
+      - run: echo "${{ secrets.DEV_ENV }}"

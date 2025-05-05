@@ -1,0 +1,15 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  job-name:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          docker run -d --name test debian echo "Hello World"
+          exit 1
+      - if: ${{ !cancelled() }}
+        run: |
+          docker ps -a
+          docker logs -t test
+      
