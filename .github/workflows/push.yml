@@ -4,7 +4,7 @@ on:
 
 jobs:
   job-name:
-    environment: prod
+    environment: dev
     runs-on: ubuntu-latest
     steps:
       - run: echo "done"
