@@ -1,0 +1,4 @@
+FROM debian:9.5-slim
+
+ARG APP_VERSION
+ARG DB_URL
