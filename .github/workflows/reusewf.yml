@@ -3,12 +3,12 @@ on:
   workflow_call:
     inputs:
       id:
-        required: true
+        required: false
         type: string
 
 jobs:
   job-name:
-    environment: ${{ inputs.id }}
+    name: First-text / Second-text
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ secrets.DEV_ENV }}"
+      - run: echo 'done'
