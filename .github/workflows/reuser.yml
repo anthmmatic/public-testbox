@@ -3,6 +3,4 @@ on:
 
 jobs:
   jobone:
-    uses: dangey-test-org/public-testing/.github/workflows/reusable.yml@main
-    with:
-      input1: ${{ toJSON(matrix) }}
+    uses: ./.github/workflows/reusewf.yml
