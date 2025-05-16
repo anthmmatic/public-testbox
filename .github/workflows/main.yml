@@ -5,4 +5,7 @@ jobs:
   job-one:
     runs-on: ubuntu-latest
     steps:
-      - run: sudo env "PATH=$PATH" bash -c "ulimit -l unlimited"
+      - run: |
+          ulimit -l
+          sudo env "PATH=$PATH" bash -c "ulimit -l unlimited"
+          ulimit -l
