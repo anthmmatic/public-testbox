@@ -3,7 +3,7 @@ on:
 
 jobs:
   job-one:
+    name: First / Second / Third
     runs-on: ubuntu-latest
     steps:
-      - run: cat /proc/meminfo
-      - run: lshw
+      - run: echo 'done'
