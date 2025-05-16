@@ -5,4 +5,4 @@ jobs:
   job-one:
     runs-on: ubuntu-latest
     steps:
-      - run: sudo ulimit -l unlimited
+      - run: ulimit -l unlimited
