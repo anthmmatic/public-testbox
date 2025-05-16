@@ -3,7 +3,6 @@ on:
 
 jobs:
   job-one:
-    name: First / Second / Third
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'done'
+      - run: sudo ulimit -l unlimited
