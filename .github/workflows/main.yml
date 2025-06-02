@@ -2,5 +2,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  job-one:
-    uses: ./.github/workflows/large-reusable-set.yml
+  call0:
+    uses: ./.github/workflows/caller-set0.yml
+  call1:
+    uses: ./.github/workflows/caller-set1.yml
