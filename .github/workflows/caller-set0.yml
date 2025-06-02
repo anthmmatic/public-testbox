@@ -1,0 +1,6 @@
+on:
+  workflow_call:
+
+jobs:
+  set0:
+    uses: ./.github/workflows/large-reusable-set.yml
