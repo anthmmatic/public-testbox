@@ -4,47 +4,93 @@ on:
 jobs:
   job1:
     uses: ./.github/workflows/reusewf.yml
+    with:
+      id: job1
   job2:
     uses: ./.github/workflows/reusewf.yml
+    with:
+      id: job2
   job3:
     uses: ./.github/workflows/reusewf.yml
+    with:
+      id: job3
   job4:
     uses: ./.github/workflows/reusewf.yml
+    with:
+      id: job4
   job5:
     uses: ./.github/workflows/reusewf.yml
+    with:
+      id: job5
   job6:
     uses: ./.github/workflows/reusewf.yml
+    with:
+      id: job6
   job7:
     uses: ./.github/workflows/reusewf.yml
+    with:
+      id: job7
   job8:
     uses: ./.github/workflows/reusewf.yml
+    with:
+      id: job8
   job9:
     uses: ./.github/workflows/reusewf.yml
+    with:
+      id: job9
   job10:
     uses: ./.github/workflows/reusewf.yml
+    with:
+      id: job10
   job11:
     uses: ./.github/workflows/reusewf.yml
+    with:
+      id: job11
   job12:
     uses: ./.github/workflows/reusewf.yml
+    with:
+      id: job12
   job13:
     uses: ./.github/workflows/reusewf.yml
+    with:
+      id: job13
   job14:
     uses: ./.github/workflows/reusewf.yml
+    with:
+      id: job14
   job15:
     uses: ./.github/workflows/reusewf.yml
+    with:
+      id: job15
   job16:
     uses: ./.github/workflows/reusewf.yml
+    with:
+      id: job16
   job17:
     uses: ./.github/workflows/reusewf.yml
+    with:
+      id: job17
   job18:
     uses: ./.github/workflows/reusewf.yml
+    with:
+      id: job18
   job19:
     uses: ./.github/workflows/reusewf.yml
+    with:
+      id: job19
   job20:
     uses: ./.github/workflows/reusewf.yml
+    with:
+      id: job20
   job21:
     uses: ./.github/workflows/reusewf.yml
+    with:
+      id: job21
   job22:
     uses: ./.github/workflows/reusewf.yml
+    with:
+      id: job22
   job23:
     uses: ./.github/workflows/reusewf.yml
+    with:
+      id: job23
