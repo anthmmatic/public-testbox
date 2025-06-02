@@ -3,9 +3,4 @@ on:
 
 jobs:
   job-one:
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          ulimit -l
-          sudo env "PATH=$PATH" bash -c "ulimit -l unlimited"
-          ulimit -l
+    uses: ./.github/workflows/large-reusable-set.yml
