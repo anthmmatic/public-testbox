@@ -1,0 +1,8 @@
+name: 'Comp Reuse'
+description: 'Test'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Reuse
+      uses: ./.github/workflows/caller-set0.yml
