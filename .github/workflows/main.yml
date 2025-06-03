@@ -3,6 +3,7 @@ on:
 
 jobs:
   call0:
-    uses: ./.github/workflows/caller-set0.yml
-  call1:
-    uses: ./.github/workflows/caller-set1.yml
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: . 
