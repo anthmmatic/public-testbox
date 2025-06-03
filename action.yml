@@ -5,4 +5,4 @@ runs:
   using: "composite"
   steps:
     - name: Reuse
-      uses: ./.github/workflows/caller-set0.yml
+      uses: anthmmatic/public-testbox/.github/workflows/caller-set0.yml@main
