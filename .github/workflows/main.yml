@@ -2,8 +2,22 @@ on:
   workflow_dispatch:
 
 jobs:
-  call0:
-    uses: ./.github/workflows/caller-set0.yml
-  call1:
-    needs: call0
-    uses: ./.github/workflows/caller-set1.yml
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.step1.outputs.test }}
+    steps:
+      - id: step1
+        run: echo "test=${{ github.actor }}" >> "$GITHUB_OUTPUT"
+
+  use:
+    needs: setup
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/anthmmatic/pkgcontainer
+      credentials:
+         username: ${{ needs.setup.outputs.output1 }}
+         password: ${{ github.token }}
+    steps:
+      - run: echo 'done'
+      
