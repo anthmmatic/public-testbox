@@ -4,13 +4,14 @@ on:
 jobs:
   job-name:
     name: "PHP ${{ matrix.php }} ${{ matrix.with_coverage == true && 'with coverage' || ''}}"
-    runs-on: ubuntu-latest
+    runs-on:
+      - ubuntu-latest
     strategy:
       matrix:
-        php: [ '7.2', '7.3' ]
-        with_coverage: [ false ]
-        include:
-          - php: '7.4'
-            with_coverage: true
+        current:
+          - 1
+        total-chunks:
+          - 1
+        include: ${{ fromJSON(inputs.matrix-include || '[]') }}
     steps:
       - run: echo "Done"
