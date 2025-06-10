@@ -7,6 +7,6 @@ permissions:
 jobs:
   create-new:
     runs-on: ubuntu-latest
-    environment: never-have-i-ever
+    environment: never-have-i-ever1
     steps:
       - run: echo 'done'
