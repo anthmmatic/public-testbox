@@ -7,6 +7,7 @@ permissions:
 jobs:
   create-new:
     runs-on: ubuntu-latest
-    environment: never-have-i-ever1
+    environment: never-have-i-ever2
+    concurrency: main
     steps:
       - run: echo 'done'
