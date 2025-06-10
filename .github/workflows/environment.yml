@@ -2,25 +2,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy-multi:
-    if: false
+  create-new:
     runs-on: ubuntu-latest
-    environment: main
-    strategy:
-      matrix:
-        prefix: ["0", "1", "2", "3", "4", "5"]
-      max-parallel: 2
+    environment: never-have-i-ever
+    permissions:
+      contents: write
     steps:
-      - run: echo "done"
-
-  deploy-condit:
-    runs-on: ubuntu-latest
-    environment: main
-    steps:
-      - run: echo "done"
-
-  the-condit:
-    runs-on: ubuntu-latest
-    environment: main
-    steps:
-      - run: echo "done"
+      - run: echo 'done'
