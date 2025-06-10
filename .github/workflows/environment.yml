@@ -1,13 +1,12 @@
 on:
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 jobs:
   create-new:
     runs-on: ubuntu-latest
     environment: never-have-i-ever2
     concurrency: main
+    permissions:
+      contents: write
     steps:
       - run: echo 'done'
