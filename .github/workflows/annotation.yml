@@ -11,3 +11,9 @@ jobs:
             echo "::notice title=Notice Title::annotation ${i}"
             echo "::warning title=Warning Title::annotation ${i}"
           done
+      - run: |
+          for i in {1..30}; do
+            echo "::error title=Error Title::annotation ${i}"
+            echo "::notice title=Notice Title::annotation ${i}"
+            echo "::warning title=Warning Title::annotation ${i}"
+          done
