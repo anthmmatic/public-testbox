@@ -7,13 +7,19 @@ jobs:
     steps:
       - run: |
           for i in {1..30}; do
-            echo "::error title=Error Title::annotation ${i}"
-            echo "::notice title=Notice Title::annotation ${i}"
-            echo "::warning title=Warning Title::annotation ${i}"
+            echo "::error title=Error Title::Step 1 annotation ${i}"
+            echo "::notice title=Notice Title::Step 1 annotation ${i}"
+            echo "::warning title=Warning Title::Step 1 annotation ${i}"
           done
       - run: |
           for i in {1..30}; do
-            echo "::error title=Error Title::annotation ${i}"
-            echo "::notice title=Notice Title::annotation ${i}"
-            echo "::warning title=Warning Title::annotation ${i}"
+            echo "::error title=Error Title::Step 2 annotation ${i}"
+            echo "::notice title=Notice Title::Step 2 annotation ${i}"
+            echo "::warning title=Warning Title::Step 2 annotation ${i}"
+          done
+      - run: |
+          for i in {1..30}; do
+            echo "::error title=Error Title::Step 3 annotation ${i}"
+            echo "::notice title=Notice Title::Step 3 annotation ${i}"
+            echo "::warning title=Warning Title::Step 3 annotation ${i}"
           done
