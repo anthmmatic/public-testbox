@@ -3,15 +3,8 @@ on:
 
 jobs:
   job-name:
-    name: "PHP ${{ matrix.php }} ${{ matrix.with_coverage == true && 'with coverage' || ''}}"
     runs-on:
       - ubuntu-latest
-    strategy:
-      matrix:
-        current:
-          - 1
-        total-chunks:
-          - 1
-        include: ${{ fromJSON(inputs.matrix-include || '[]') }}
+      - self-hosted
     steps:
       - run: echo "Done"
