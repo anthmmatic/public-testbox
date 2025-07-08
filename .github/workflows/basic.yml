@@ -3,4 +3,4 @@ on:
 
 jobs:
   job-name:
-    uses: anthmmatic/something-that-doesnt-exist/.github/workflows/some.yml@main
+    uses: ./.github/workflows/reusewf.yml
