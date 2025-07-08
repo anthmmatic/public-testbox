@@ -3,12 +3,12 @@ on:
   workflow_call:
     inputs:
       id:
-        required: false
+        required: true
         type: string
 
 jobs:
   job-name:
-    name: First-text / Second-text
+    name: First-text
     runs-on: ubuntu-latest
     steps:
       - run: echo 'done'
