@@ -3,6 +3,4 @@ on:
 
 jobs:
   job-name:
-    runs-on: ubuntu-latest
-    step:
-      - run: echo "Done"
+    uses: anthmmatic/something-that-doesnt-exist/.github/workflows/some.yml@main
