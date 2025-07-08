@@ -3,8 +3,6 @@ on:
 
 jobs:
   job-name:
-    runs-on:
-      - ubuntu-latest
-      - self-hosted
+    run-on: ubuntu-latest
     steps:
       - run: echo "Done"
