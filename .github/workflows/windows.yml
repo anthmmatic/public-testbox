@@ -2,14 +2,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  job-name:
+  win-22:
     runs-on: windows-latest
     steps:
-      - run: echo $pwd
-      - uses: actions/checkout@v3
-      - run: echo $pwd
-      - run: echo "${{ github.workspace }}"
-      - run: Get-ChildItem $pwd –recurse -directory
-      - run: git config --list
-      - run: git config --global core.fsmonitor false
-      - run: git config --list
+      - run: git --version
+        shell: bash
+  win-25:
+    runs-on: windows-2025
+    steps:
+      - run: git --version
+        shell: bash
