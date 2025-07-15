@@ -1,0 +1,9 @@
+on:
+  schedule:
+    - cron: '0 10 * * 0#1'
+
+jobs:
+  job-name:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'done'
