@@ -12,20 +12,24 @@ jobs:
     steps:
       - run: echo 'done'
   second-run:
+    needs: [first-run]
     runs-on: ubuntu-latest
     steps:
       - run: echo 'done'
   first-skip:
+    needs: [first-run, second-run]
     if: false
     runs-on: ubuntu-latest
     steps:
       - run: echo 'done'
   second-skip:
+    needs: [first-run, second-run]
     if: false
     runs-on: ubuntu-latest
     steps:
       - run: echo 'done'
   third-skip:
+    needs: [first-run, second-run]
     if: false
     runs-on: ubuntu-latest
     steps:
