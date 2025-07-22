@@ -20,6 +20,7 @@ jobs:
   first-skip:
     needs: [first-run, second-run]
     if: false
+    concurrency: first
     runs-on: ubuntu-latest
     steps:
       - run: echo 'done'
