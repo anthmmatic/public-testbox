@@ -12,6 +12,7 @@ jobs:
     steps:
       - run: echo 'done'
   second-run:
+    if: false
     needs: [first-run]
     runs-on: ubuntu-latest
     steps:
