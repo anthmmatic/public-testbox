@@ -8,31 +8,21 @@ on:
 
 jobs:
   first-run:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo 'done'
+    uses: ./.github/workflows/reuse-nested.yml
   second-run:
     if: false
     needs: [first-run]
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo 'done'
+    uses: ./.github/workflows/reuse-nested.yml
   first-skip:
     needs: [first-run, second-run]
     if: false
     concurrency: first
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo 'done'
+    uses: ./.github/workflows/reuse-nested.yml
   second-skip:
     needs: [first-run, second-run]
     if: false
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo 'done'
+    uses: ./.github/workflows/reuse-nested.yml
   third-skip:
     needs: [first-run, second-run]
     if: false
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo 'done'
+    uses: ./.github/workflows/reuse-nested.yml
