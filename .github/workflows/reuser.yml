@@ -4,5 +4,3 @@ on:
 jobs:
   jobone:
     uses: ./.github/workflows/reusewf.yml
-    with:
-      id: ${{ secrets.GITHUB_TOKEN }}
