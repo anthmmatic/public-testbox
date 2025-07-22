@@ -3,12 +3,30 @@ on:
   workflow_call:
     inputs:
       id:
-        required: true
+        required: false
         type: string
 
 jobs:
-  job-name:
-    name: First-text
+  first-run:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'done'
+  second-run:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'done'
+  first-skip:
+    if: false
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'done'
+  second-skip:
+    if: false
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'done'
+  third-skip:
+    if: false
     runs-on: ubuntu-latest
     steps:
       - run: echo 'done'
