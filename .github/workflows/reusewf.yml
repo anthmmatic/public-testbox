@@ -11,18 +11,13 @@ jobs:
     uses: ./.github/workflows/reuse-nested.yml
   second-run:
     if: false
-    needs: [first-run]
     uses: ./.github/workflows/reuse-nested.yml
   first-skip:
-    needs: [first-run, second-run]
     if: false
-    concurrency: first
     uses: ./.github/workflows/reuse-nested.yml
   second-skip:
-    needs: [first-run, second-run]
     if: false
     uses: ./.github/workflows/reuse-nested.yml
   third-skip:
-    needs: [first-run, second-run]
     if: false
     uses: ./.github/workflows/reuse-nested.yml
