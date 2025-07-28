@@ -8,7 +8,8 @@ jobs:
     runs-on: macos-latest
     steps:
       - run: echo 'step 1'
-      - run: pwd
       - run: |
           cd /
+          cd /Users/runner
           pwd
+          ls -la
