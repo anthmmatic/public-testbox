@@ -8,8 +8,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - run: echo 'step 1'
-      - run: echo 'step 2'
-      - uses: mxschmitt/action-tmate@v3
-        timeout-minutes: 15
-        with:
-          detached: true
+      - run: pwd
+      - run: |
+          cd /
+          pwd
