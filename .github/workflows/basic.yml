@@ -2,6 +2,18 @@ on:
   #push:
   #pull_request:
   workflow_dispatch:
+    inputs:
+      env:
+      description: github env to deploy to
+      required: false
+      type: choice
+      default: ''
+      options:
+      - ''
+      - dev
+      - test
+      - staging
+      - production
 
 jobs:
   job-name:
