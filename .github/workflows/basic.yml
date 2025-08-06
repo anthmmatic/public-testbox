@@ -1,25 +1,14 @@
 on:
   #push:
-  #pull_request:
+  pull_request:
   workflow_dispatch:
-    inputs:
-      env:
-        description: github env to deploy to
-        required: false
-        type: choice
-        default: ''
-        options:
-        - ''
-        - dev
-        - test
-        - staging
-        - production
 
 jobs:
   job-name:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
-      - run: echo 'step 1'
       - run: |
-          cd /
-          ls -R
+          for i in {1..3000}; do
+            echo "Number: $i"
+          done
+          exit 1
