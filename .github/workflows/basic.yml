@@ -2,24 +2,10 @@ on:
   #push:
   #pull_request:
   workflow_dispatch:
-    inputs:
-      env:
-        description: github env to deploy to
-        required: false
-        type: choice
-        default: ''
-        options:
-        - ''
-        - dev
-        - test
-        - staging
-        - production
 
 jobs:
   job-name:
-    runs-on: macos-latest
+    if: always()
+    runs-on: nothing-runner
     steps:
       - run: echo 'step 1'
-      - run: |
-          cd /
-          ls -R
