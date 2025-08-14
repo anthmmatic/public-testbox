@@ -4,8 +4,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  job-name:
-    if: always()
-    runs-on: nothing-runner
+  main:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
     steps:
-      - run: echo 'step 1'
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 
+      - uses: actions/github-script@7.0.1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: return true;
