@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo ::notice title=Notice Title::"First link: https://www.google.com/, Second link: https://www.google.com/"
+          echo ::notice title=Notice Title::"First link: https://www.github.com , Second link: https://www.google.com"
