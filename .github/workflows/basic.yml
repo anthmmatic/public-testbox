@@ -7,10 +7,5 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 
-      - uses: actions/github-script@7.0.1
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: return true;
+      - run: |
+          echo ::notice title=Notice Title::"First link: https://www.google.com/, Second link: https://www.google.com/"
