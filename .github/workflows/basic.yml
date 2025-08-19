@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo ::notice title=Notice Title::"First link: https://github.com/anthmmatic/public-testbox/actions/runs/17048963578, Second link: https://github.com/anthmmatic/public-testbox/actions/runs/17048963578"
+          echo "First link: https://github.com/anthmmatic/public-testbox/actions/runs/17048963578, Second link: https://google.com/" >> $GITHUB_STEP_SUMMARY
