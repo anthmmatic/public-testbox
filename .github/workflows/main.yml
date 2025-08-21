@@ -1,23 +1,20 @@
 on:
   workflow_dispatch:
+    inputs:
+      env:
+        description: github env to deploy to
+        required: false
+        type: choice
+        default: ''
+        options:
+          - ''
+          - dev
+          - test
+          - staging
+          - production
 
 jobs:
-  setup:
+  job-name:
     runs-on: ubuntu-latest
-    outputs:
-      output1: ${{ steps.step1.outputs.test }}
-    steps:
-      - id: step1
-        run: echo "test=${{ github.actor }}" >> "$GITHUB_OUTPUT"
-
-  use:
-    needs: setup
-    runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/anthmmatic/pkgcontainer
-      credentials:
-         username: ${{ needs.setup.outputs.output1 }}
-         password: ${{ github.token }}
     steps:
       - run: echo 'done'
-      
