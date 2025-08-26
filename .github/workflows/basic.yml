@@ -7,11 +7,10 @@ jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'done'
+      - run: |
+          [ "$GITHUB_RUN_ATTEMPT" != 1 ] || exit 1
   job-name-two:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        num: [0,1,2,3]
+    needs: job-name
     steps:
       - run: echo 'done'
