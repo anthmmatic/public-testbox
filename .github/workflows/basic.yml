@@ -10,5 +10,8 @@ jobs:
       - run: echo 'done'
   job-name-two:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        num: [0,1,2,3]
     steps:
       - run: echo 'done'
