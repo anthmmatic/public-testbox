@@ -1,17 +1,14 @@
 on:
   workflow_dispatch:
     inputs:
-      env:
-        description: github env to deploy to
+      num:
+        description: number input
         required: false
-        type: choice
-        default: ''
-        options:
-          - ''
-          - dev
-          - test
-          - staging
-          - production
+        type: number
+      str:
+        description: string input
+        required: false
+        type: string
 
 jobs:
   job-name:
