@@ -15,3 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo 'done'
+        env:
+          NUM: ${{ inputs.num }}
+          STR: ${{ inputs.str }}
