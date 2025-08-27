@@ -9,6 +9,10 @@ on:
         description: string input
         required: false
         type: string
+      bool:
+        description: boolean input
+        required: false
+        type: boolean
 
 jobs:
   job-name:
