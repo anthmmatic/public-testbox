@@ -3,7 +3,7 @@ on:
     inputs:
       num:
         description: number input
-        required: true
+        required: false
         type: number
       str:
         description: string input
@@ -14,7 +14,5 @@ jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'done'
-        env:
-          NUM: ${{ inputs.num }}
-          STR: ${{ inputs.str }}
+      - run: echo "${{ fromJSON(github.event.inputs) }}"
+      - run: echo "${{ fromJSON(inputs) }}"
