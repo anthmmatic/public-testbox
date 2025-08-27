@@ -3,7 +3,7 @@ on:
     inputs:
       num:
         description: number input
-        required: false
+        required: true
         type: number
       str:
         description: string input
