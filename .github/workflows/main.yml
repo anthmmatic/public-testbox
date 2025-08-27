@@ -14,5 +14,5 @@ jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ fromJSON(github.event.inputs) }}"
-      - run: echo "${{ fromJSON(inputs) }}"
+      - run: echo "${{ toJSON(github.event.inputs) }}"
+      - run: echo "${{ toJSON(inputs) }}"
