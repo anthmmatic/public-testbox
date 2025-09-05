@@ -1,22 +1,11 @@
 on:
   workflow_dispatch:
-    inputs:
-      num:
-        description: number input
-        required: false
-        type: number
-      str:
-        description: string input
-        required: false
-        type: string
-      bool:
-        description: boolean input
-        required: false
-        type: boolean
 
 jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ toJSON(github.event.inputs) }}"
-      - run: echo "${{ toJSON(inputs) }}"
+      - run: |
+          ::warning title=Warning Title::link- https://github.com https://www.google.com
+      - run: |
+          echo "link- https://github.com https://www.google.com" >> $GITHUB_STEP_SUMMARY
