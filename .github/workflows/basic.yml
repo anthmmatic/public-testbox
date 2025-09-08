@@ -4,12 +4,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  job-name:
-    name: 'job-with(a)special[name]with.special&characters'
+  job-one:
     runs-on: ubuntu-latest
     steps:
       - run: echo 'done'
-  job-name-two:
+  job-two:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'done'
+  job-three:
+    needs: [job-one, job-two, job-one]
     runs-on: ubuntu-latest
     steps:
       - run: echo 'done'
