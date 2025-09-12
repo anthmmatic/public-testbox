@@ -10,10 +10,10 @@ jobs:
       - uses: actions/github-script@v8
         with:
           script: |
-            const value = 12345;
+            const value = 1;
             core.setSecret(value);
       - id: set
         run: |
           echo "rnum=$RELEASE_NUMBER" >> $GITHUB_OUTPUT
         env:
-          RELEASE_NUMBER: 1628
+          RELEASE_NUMBER: '1628'
