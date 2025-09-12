@@ -1,19 +1,14 @@
 on:
-  #push:
-  #pull_request:
   workflow_dispatch:
 
 jobs:
   job-one:
     runs-on: ubuntu-latest
+    outputs:
+      release_number: ${{ steps.set.outputs.rnum }}
     steps:
-      - run: echo 'done'
-  job-two:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo 'done'
-  job-three:
-    needs: [job-one, job-two, job-one]
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo 'done'
+      - id: set
+        run: |
+          echo "rnum=$RELEASE_NUMBER" >> $GITHUB_ENV
+        env:
+          RELEASE_NUMBER: 1628
