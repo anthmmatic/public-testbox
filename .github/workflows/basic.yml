@@ -7,6 +7,11 @@ jobs:
     outputs:
       release_number: ${{ steps.set.outputs.rnum }}
     steps:
+      - uses: actions/github-script@v8
+        with:
+          script: |
+            const value = 1;
+            core.setSecret(value);
       - id: set
         run: |
           echo "rnum=$RELEASE_NUMBER" >> $GITHUB_ENV
