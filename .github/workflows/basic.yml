@@ -16,4 +16,4 @@ jobs:
         run: |
           echo "rnum=$RELEASE_NUMBER" >> $GITHUB_OUTPUT
         env:
-          RELEASE_NUMBER: '1628'
+          RELEASE_NUMBER: ${{ 1628 }}
