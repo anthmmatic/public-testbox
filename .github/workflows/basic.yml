@@ -14,6 +14,6 @@ jobs:
             core.setSecret(value);
       - id: set
         run: |
-          echo "rnum=$RELEASE_NUMBER" >> $GITHUB_OUTPUT
+          echo "rnum=${{ fromJSON($RELEASE_NUMBER) }}" >> $GITHUB_OUTPUT
         env:
-          RELEASE_NUMBER: "1628"
+          RELEASE_NUMBER: 1628
