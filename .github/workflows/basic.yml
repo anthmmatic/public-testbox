@@ -5,7 +5,7 @@ jobs:
   job-one:
     runs-on: ubuntu-latest
     outputs:
-      release_number: ${{ steps.set.outputs.rnum }}
+      release_number: ${{ fromJSON(steps.set.outputs.rnum) }}
     steps:
       - uses: actions/github-script@v8
         with:
@@ -16,4 +16,4 @@ jobs:
         run: |
           echo "rnum=$RELEASE_NUMBER" >> $GITHUB_OUTPUT
         env:
-          RELEASE_NUMBER: ${{ 1628 }}
+          RELEASE_NUMBER: 1628
