@@ -1,6 +1,6 @@
 on:
   workflow_run:
-    workflows: ['Parent Workflow+Test']
+    workflows: ["Parent Workflow+Test"]
     types:
       - completed
 
