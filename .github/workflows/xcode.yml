@@ -5,4 +5,4 @@ jobs:
   job-name:
     runs-on: macos-latest
     steps:
-      - run: xcodebuild -downloadPlatform iOS
+      - run: xcodebuild -downloadPlatform iOS -skipSims
