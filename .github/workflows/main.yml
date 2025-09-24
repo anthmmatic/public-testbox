@@ -1,6 +1,8 @@
-name: "Parent Workflow+Test"
 on:
   workflow_dispatch:
+
+permissions:
+  id-token: write
 
 jobs:
   job-name:
