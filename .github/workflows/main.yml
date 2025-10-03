@@ -1,23 +1,18 @@
 on:
   workflow_dispatch:
 
-jobs:
-  setup:
-    runs-on: ubuntu-latest
-    outputs:
-      output1: ${{ steps.step1.outputs.test }}
-    steps:
-      - id: step1
-        run: echo "test=${{ github.actor }}" >> "$GITHUB_OUTPUT"
+permissions:
+  id-token: write
+  contents: write
 
-  use:
-    needs: setup
+jobs:
+  job-name:
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/anthmmatic/pkgcontainer
-      credentials:
-         username: ${{ needs.setup.outputs.output1 }}
-         password: ${{ github.token }}
     steps:
-      - run: echo 'done'
-      
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org'
+      - run: |
+          echo 'done'

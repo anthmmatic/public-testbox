@@ -1,0 +1,11 @@
+on:
+  workflow_run:
+    workflows: ["Parent Workflow+Test"]
+    types:
+      - completed
+
+jobs:
+  job-one:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'done'

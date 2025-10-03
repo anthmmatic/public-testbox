@@ -5,8 +5,10 @@ jobs:
   generate-logs:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          for i in {1..200}
-          do
-             echo "Logline: $i"
-          done
+      - run: echo "lone"
+      - name: Group of log lines
+        run: |
+            echo "start"
+            echo "::group::My title"
+            echo "Inside group"
+            echo "::endgroup::"
