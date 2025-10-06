@@ -5,18 +5,18 @@ jobs:
   upload:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          mkdir publish
-          cd publish
-          echo "TEST FILE CONTENT" > test.txt
-          echo "TEST2" > test2.txt
-      - run: |
-          ls
-          ls ./publish
-      - uses: actions/upload-artifact@v3
+      - run: echo "TEST FILE CONTENT" > test.txt
+      - name: Save artifact
+        id: upload-artifact
+        uses: actions/upload-artifact@v4.6.2
         with:
-          name: my-art-${{ github.run_attempt }}
-          path: ./publish
+          name: build-${{ github.run_id }}
+          path: test.txt
+      - run: echo "${{ steps.upload-artifact.outputs.artifact-id }}"
+      - run: |
+          artifact_url=$(curl -Ss -L --url "https://api.github.com/repos/rendrgen/rendrgen.com/actions/artifacts/${{ steps.upload-artifact.outputs.artifact-id }}/zip" \
+          --header "Accept: application/vnd.github+json" --header "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}")
+          echo $artifact_url
 
   get-redirect:
     if: false
