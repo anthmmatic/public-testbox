@@ -7,3 +7,4 @@ jobs:
     steps:
       - run: echo "${{ fromJSON(vars.VALS).value }}"
       - run: echo "${{ vars.VALS }}"
+      - run: sleep 1m
