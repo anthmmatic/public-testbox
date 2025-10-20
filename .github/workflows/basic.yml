@@ -4,15 +4,6 @@ on:
 jobs:
   job-name:
     runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-        ports:
-          - 5432:5432
     steps:
-      - run: echo 'done'
+      - run: echo "${{ fromJSON(vars.VALS).value }}"
+      - run: echo "${{ vars.VALS }}"
