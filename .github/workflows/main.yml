@@ -1,18 +1,13 @@
 on:
   workflow_dispatch:
 
-permissions:
-  id-token: write
-  contents: write
-
 jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - name: Use Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          registry-url: 'https://registry.npmjs.org'
-      - run: |
-          echo 'done'
+      - name: OS packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -yqq \
+            gdal-bin \
+            libpq-dev
