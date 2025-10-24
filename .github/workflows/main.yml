@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Disable man-db auto updates
         run: |
-          echo "set man-db/auto-update false" | debconf-communicate && dpkg-reconfigure man-db
+          echo "set man-db/auto-update false" | sudo debconf-communicate && sudo dpkg-reconfigure man-db
       - name: OS packages
         run: |
           sudo apt-get update
