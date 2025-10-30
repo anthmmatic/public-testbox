@@ -5,6 +5,9 @@ jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ fromJSON(vars.VALS).value }}"
-      - run: echo "${{ vars.VALS }}"
-      - run: sleep 1m
+      - run: echo "done"
+  skipped:
+    if: false
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "done"
