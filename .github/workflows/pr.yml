@@ -1,9 +1,9 @@
 on:
   pull_request:
-    types: [closed]
 
 jobs:
   job-name:
+    name: CI (${{ github.base_ref }})
     runs-on: ubuntu-latest
     steps:
       - run: echo "${{ github.ref }}"
