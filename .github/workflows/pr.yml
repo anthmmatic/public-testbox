@@ -7,7 +7,7 @@ jobs:
     name: CI (${{ matrix.ref }})
     strategy:
       matrix:
-        ref: "${{ github.base_ref || github.ref }}"
+        ref: ['${{ github.base_ref || github.ref }}']
     runs-on: ubuntu-latest
     steps:
       - run: echo "${{ github.ref }}"
