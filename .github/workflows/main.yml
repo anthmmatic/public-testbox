@@ -13,7 +13,12 @@ jobs:
           echo "set man-db/auto-update false" | sudo debconf-communicate && sudo dpkg-reconfigure man-db
       - name: OS packages
         run: |
+          sudo apt-get -oDebug::pkgAcquire::Worker=1 update
+          echo "*********************************************************************"
+          sudo apt-get clean
+          echo "*********************************************************************"
           sudo apt-get update
+          echo "*********************************************************************"
           sudo apt-get install -yqq \
             gdal-bin \
             libpq-dev
