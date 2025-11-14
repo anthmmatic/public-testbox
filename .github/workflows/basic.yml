@@ -5,9 +5,10 @@ jobs:
   job-name:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "done"
-  skipped:
-    if: false
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "done"
+      - run: |
+          echo "ulimit -n (soft/hard):"
+          ulimit -Sn; ulimit -Hn
+      - run: |
+          ulimit -n 4096
+          echo "ulimit -n (soft/hard):"
+          ulimit -Sn; ulimit -Hn
