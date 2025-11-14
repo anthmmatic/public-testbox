@@ -9,6 +9,6 @@ jobs:
           echo "ulimit -n (soft/hard):"
           ulimit -Sn; ulimit -Hn
       - run: |
-          ulimit -n 4096
+          ulimit -n 120000
           echo "ulimit -n (soft/hard):"
           ulimit -Sn; ulimit -Hn
