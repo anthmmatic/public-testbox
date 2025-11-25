@@ -4,11 +4,10 @@ on:
 jobs:
   job-name:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - run: |
-          echo "ulimit -n (soft/hard):"
-          ulimit -Sn; ulimit -Hn
-      - run: |
-          ulimit -n 120000
-          echo "ulimit -n (soft/hard):"
-          ulimit -Sn; ulimit -Hn
+      - run: gh release create --repo ${{ github.repository }} v99.0
+        env:
+          GH_DEBUG: api
+          GH_TOKEN: ${{ github.token }}
