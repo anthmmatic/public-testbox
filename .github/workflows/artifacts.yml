@@ -2,26 +2,27 @@ on:
   workflow_dispatch:
 
 jobs:
-  api:
+  up:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "TEST FILE CONTENT" > test.txt
-      - name: Save artifact
-        id: upload-artifact
-        uses: actions/upload-artifact@v4.6.2
+      - run: |
+          mkdir facts && cd facts
+          echo "TEST FILE CONTENT" > test.txt
+          echo "TEST FILE CONTENT TWO" > test2.txt
+      - id: upload-artifact
+        uses: actions/upload-artifact@v5
         with:
           name: build-${{ github.run_id }}
-          path: test.txt
-      - run: echo "${{ steps.upload-artifact.outputs.artifact-id }}"
-      - run: |
-          artifact_url=$(curl -Ss -L --url "https://api.github.com/repos/${{ github.repository }}/actions/artifacts/${{ steps.upload-artifact.outputs.artifact-id }}/zip" \
-          --header "Accept: application/vnd.github+json" --header "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}")
-          echo $artifact_url
+          path: facts
+     # - run: echo "${{ steps.upload-artifact.outputs.artifact-id }}"
+     # - run: |
+     #     artifact_url=$(curl -Ss -L --url "https://api.github.com/repos/${{ github.repository }}/actions/artifacts/${{ steps.upload-artifact.outputs.artifact-id }}/zip" \
+     #     --header "Accept: application/vnd.github+json" --header "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}")
+     #     echo $artifact_url
 
   with-action:
-    needs: api
+    needs: up
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: build-${{ github.run_id }}
+      - uses: actions/download-artifact@v5
+      - run: ls .
