@@ -12,8 +12,13 @@ jobs:
       - id: upload-artifact
         uses: actions/upload-artifact@v5
         with:
-          name: build-${{ github.run_id }}
-          path: facts
+          name: build-1
+          path: facts/test.txt
+      - id: upload-artifact2
+        uses: actions/upload-artifact@v5
+        with:
+          name: build-2
+          path: facts/test2.txt
      # - run: echo "${{ steps.upload-artifact.outputs.artifact-id }}"
      # - run: |
      #     artifact_url=$(curl -Ss -L --url "https://api.github.com/repos/${{ github.repository }}/actions/artifacts/${{ steps.upload-artifact.outputs.artifact-id }}/zip" \
