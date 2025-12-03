@@ -4,10 +4,10 @@ on:
 jobs:
   job-name:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - run: echo "done"
-  skipped:
-    if: false
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "done"
+      - run: gh release create --repo ${{ github.repository }} v99.0
+        env:
+          GH_DEBUG: api
+          GH_TOKEN: ${{ github.token }}
