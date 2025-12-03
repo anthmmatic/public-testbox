@@ -24,5 +24,7 @@ jobs:
     needs: up
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v5
+        with:
+          name: build-1
       - run: ls .
