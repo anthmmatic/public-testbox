@@ -2,11 +2,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  create-new:
+  test:
     runs-on: ubuntu-latest
-    environment: never-have-i-ever2
-    concurrency: main
-    permissions:
-      deployments: write
+    environment: approval-needed
     steps:
       - run: echo 'done'

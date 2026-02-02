@@ -1,0 +1,8 @@
+on:
+  pull_request:
+    branches:
+      - prtest2
+
+jobs:
+  job-name:
+    uses: ./.github/workflows/pr.yml
