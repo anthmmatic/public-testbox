@@ -5,4 +5,4 @@ jobs:
   job-name:
     runs-on: ubuntu-24.04-arm
     steps:
-      - run: echo 'done'
+      - run: sleep 1m; echo 'done'
