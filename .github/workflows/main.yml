@@ -3,6 +3,14 @@ on:
 
 jobs:
   job-name:
-    runs-on: ubuntu-24.04-arm
+    runs-on: ubuntu-24.04
     steps:
-      - run: sleep 1m; echo 'done'
+      - name: DNS and network diagnostics
+        run: |
+          set -x
+          uname -a
+          cat /etc/resolv.conf || true
+          command -v resolvectl && resolvectl status || true
+          command -v nslookup && nslookup registry-1.docker.io || true
+          command -v dig && dig +short registry-1.docker.io || true
+          curl -I https://registry-1.docker.io/v2/ || true
