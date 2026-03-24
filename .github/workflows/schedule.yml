@@ -8,5 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: production
+      deployment: false
     steps:
       - run: echo 'done'
