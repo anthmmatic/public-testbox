@@ -9,7 +9,7 @@ jobs:
       - run: sleep 30s
       - if: false
         run: echo "skip"
-      - if: success() || !failure() && cancelled()
+      - if: success() || job.status != 'cancelled' && cancelled()
         run: |
           sleep 1m
           echo "ran anyway"
