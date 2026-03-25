@@ -9,5 +9,5 @@ jobs:
       - run: exit 1
       - if: false
         run: echo "skip"
-      - if: always() && success()
+      - if: always()
         run: echo "ran anyway"
