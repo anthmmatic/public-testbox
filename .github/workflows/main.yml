@@ -5,4 +5,8 @@ jobs:
   job-name:
     runs-on: ubuntu-24.04
     steps:
-      - run: docker pull python:3.14-slim-trixie
+      - run: echo "first"
+      - if: false
+        run: echo "skip"
+      - if: always() && success()
+        run: echo "ran anyway"
