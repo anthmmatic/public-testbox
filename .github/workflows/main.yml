@@ -6,9 +6,10 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - run: echo "first"
+      - run: sleep 30s
       - if: false
         run: echo "skip"
-      - if: success() || success() && cancelled()
+      - if: success() || !failure() && cancelled()
         run: |
           sleep 1m
           echo "ran anyway"
