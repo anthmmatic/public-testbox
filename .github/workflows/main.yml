@@ -8,6 +8,7 @@ jobs:
       - run: echo "first"
       - if: false
         run: echo "skip"
-      - run: sleep 1m
       - if: always() && success()
-        run: echo "ran anyway"
+        run: |
+          sleep 1m
+          echo "ran anyway"
