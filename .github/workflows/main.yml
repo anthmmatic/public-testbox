@@ -6,8 +6,8 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - run: echo "first"
-      - run: exit 1
       - if: false
         run: echo "skip"
-      - if: always()
+      - run: sleep 1m
+      - if: always() && success()
         run: echo "ran anyway"
