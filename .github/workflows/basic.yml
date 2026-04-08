@@ -1,10 +1,10 @@
-name: Parent Workflow+Test
-
 on:
   workflow_dispatch:
 
 jobs:
   job-name:
+    environment:
+      name: approval-needed
     runs-on: ubuntu-latest
     steps:
       - run: echo 'done'
