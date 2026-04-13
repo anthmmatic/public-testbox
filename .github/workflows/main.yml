@@ -6,3 +6,6 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - run: sleep 3m
+      - run: echo 0
+      - run: echo 1
+      - run: echo 2
