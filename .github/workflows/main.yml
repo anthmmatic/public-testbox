@@ -5,10 +5,4 @@ jobs:
   job-name:
     runs-on: ubuntu-24.04
     steps:
-      - run: echo "first"
-      - if: false
-        run: echo "skip"
-      - if: success() || job.status != 'cancelled' && cancelled()
-        run: |
-          sleep 1m
-          echo "ran anyway"
+      - run: sleep 3m
