@@ -5,7 +5,13 @@ jobs:
   job-name:
     runs-on: ubuntu-24.04
     steps:
-      - run: sleep 3m
+      - run: |
+          echo "line 111111111111"
+          echo "line 222222222222"
+          echo "line 333333333333"
+          echo "line 444444444444"
+          echo "line 555555555555"
+          sleep 3m
       - run: echo 0
       - run: echo 1
       - run: echo 2
