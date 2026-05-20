@@ -2,5 +2,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  jobone:
-    uses: ./.github/workflows/reusewf.yml
+  job-name:
+    uses: Anthmsplayground/public-workflows/.github/workflows/reusable-for-secrets.yml@main
+    secrets: inherit
