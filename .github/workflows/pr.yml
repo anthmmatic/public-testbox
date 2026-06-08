@@ -1,9 +1,8 @@
 on:
-  pull_request:
+  workflow_call:
 
 jobs:
   job-name:
-    name: CI (${{ github.base_ref }})
     runs-on: ubuntu-latest
     steps:
       - run: echo "${{ github.ref }}"

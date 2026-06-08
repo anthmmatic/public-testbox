@@ -1,9 +1,13 @@
 on:
+  workflow_dispatch:
   schedule:
     - cron: "* * 30 2,3 *"
 
 jobs:
   job-name:
     runs-on: ubuntu-latest
+    environment:
+      name: production
+      deployment: false
     steps:
       - run: echo 'done'
