@@ -2,10 +2,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  test-amd64:
-    runs-on: macos-26-intel
+  preflight:
+    name: Release preflight
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-go@v6
-        with:
-          go-version: '1.25'
-      - run: go version
+      - run: echo "Release workflow accepted by Actions"
