@@ -1,13 +1,17 @@
 on:
   workflow_dispatch:
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
-  job-name:
-    runs-on: ubuntu-latest
+  tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ windows-2022, windows-2025 ]
+    runs-on: ${{ matrix.os }}
     steps:
-      - run: echo "done"
-  skipped:
-    if: false
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "done"
+      - run: wsl --install -d Ubuntu-26.04
+      - run: wsl --distribution Ubuntu-26.04 apt-get update

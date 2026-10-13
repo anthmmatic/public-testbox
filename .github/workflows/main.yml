@@ -2,21 +2,18 @@ on:
   workflow_dispatch:
 
 jobs:
-  job-name:
-    strategy:
-      matrix:
-        attempt: [0,1,2,3,4,5,6,7,8,9]
-    runs-on: ubuntu-latest
+  pass:
+    runs-on: ubuntu-24.04
     steps:
-      - name: Disable man-db auto updates
-        run: |
-          echo "set man-db/auto-update false" | sudo debconf-communicate && sudo dpkg-reconfigure man-db
-      - name: OS packages
-        run: |
-          sudo apt-get clean
-          echo "*********************************************************************"
-          sudo apt-get update
-          echo "*********************************************************************"
-          sudo apt-get -o Debug::pkgAcquire::Worker=1 install -yqq \
-            gdal-bin \
-            libpq-dev
+      - run: exit 0
+      
+  skip:
+    if: false
+    runs-on: ubuntu-24.04
+    steps:
+      - run: exit 0
+
+  fail:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: exit 1
