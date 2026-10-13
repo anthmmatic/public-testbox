@@ -13,5 +13,5 @@ jobs:
         os: [ windows-2022, windows-2025 ]
     runs-on: ${{ matrix.os }}
     steps:
-      - run: echo "job start"
+      - run: wsl --install -d Ubuntu-26.04
       - run: wsl --distribution Ubuntu-26.04 apt-get update
