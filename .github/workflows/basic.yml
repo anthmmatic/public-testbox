@@ -1,6 +1,10 @@
 on:
   workflow_dispatch:
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   tests:
     strategy:
