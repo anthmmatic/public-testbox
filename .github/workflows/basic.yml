@@ -2,8 +2,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  preflight:
-    name: Release preflight
-    runs-on: ubuntu-latest
+  tests:
+    strategy:
+      matrix:
+        os: [ ubuntu-26.04, ubuntu-24.04, ubuntu-22.04 ]
+    runs-on: ${{ matrix.os }}
     steps:
-      - run: echo "Release workflow accepted by Actions"
+      - run: apt-get update
